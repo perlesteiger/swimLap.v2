@@ -157,7 +157,8 @@ function createRepartition(nageur,compet,course,saison) {
 
                 while (i < tab.length) {
                     /*SI RECHERCHE PAR RACE*/
-                    if (nageur === "") {
+                    if (nageur === "" && course !== "") {
+                        console.log(nageur+' '+course);
                         /*INITIALISATION*/
                         if (i===0) {
                             //variable nageur et round
@@ -195,7 +196,7 @@ function createRepartition(nageur,compet,course,saison) {
                                           element: 'donut-'+i,
                                           data: total,
                                           colors: ['#FFF'],
-                                          formatter: function (y, data) {  return y + '%' }
+                                          formatter: function (y) {  return y + '%' }
                                         });
 
                                         //changement de round et vidage tableau
@@ -216,7 +217,7 @@ function createRepartition(nageur,compet,course,saison) {
                                           element: 'donut-'+i,
                                           data: total,
                                           colors: ['#FFF'],
-                                          formatter: function (y, data) {  return y + '%' }
+                                          formatter: function (y) {  return y + '%' }
                                         });
 
                                     }
@@ -230,7 +231,7 @@ function createRepartition(nageur,compet,course,saison) {
                                   element: 'donut-'+i,
                                   data: total,
                                   colors: ['#FFF'],
-                                  formatter: function (y, data) {  return y + '%' }
+                                  formatter: function (y) {  return y + '%' }
                                 });
 
                                 //variable nageur et round
@@ -263,7 +264,7 @@ function createRepartition(nageur,compet,course,saison) {
                                       element: 'donut-'+i,
                                       data: total,
                                       colors: ['#FFF'],
-                                      formatter: function (y, data) {  return y + '%' }
+                                      formatter: function (y) {  return y + '%' }
                                     });
 
                                 }
@@ -272,6 +273,7 @@ function createRepartition(nageur,compet,course,saison) {
                         }
                     /*SI RECHERCHE PAR NAGEUR OU PREMIER AFFICHAGE*/
                     } else if (course === "" || (course === "" && nageur === "")) {
+                        console.log('1');
                         /*INITIALISATION*/
                         if (i===0) {
                             //variable nageur et round
@@ -309,7 +311,7 @@ function createRepartition(nageur,compet,course,saison) {
                                           element: 'donut-'+i,
                                           data: total,
                                           colors: ['#FFF'],
-                                          formatter: function (y, data) {  return y + '%' }
+                                          formatter: function (y) {  return y + '%' }
                                         });
 
                                         //changement de round et vidage tableau
@@ -330,7 +332,7 @@ function createRepartition(nageur,compet,course,saison) {
                                           element: 'donut-'+i,
                                           data: total,
                                           colors: ['#FFF'],
-                                          formatter: function (y, data) {  return y + '%' }
+                                          formatter: function (y) {  return y + '%' }
                                         });
 
                                     }
@@ -344,7 +346,7 @@ function createRepartition(nageur,compet,course,saison) {
                                   element: 'donut-'+i,
                                   data: total,
                                   colors: ['#FFF'],
-                                  formatter: function (y, data) {  return y + '%' }
+                                  formatter: function (y) {  return y + '%' }
                                 });
 
                                 //variable nageur et round
@@ -377,7 +379,7 @@ function createRepartition(nageur,compet,course,saison) {
                                       element: 'donut-'+i,
                                       data: total,
                                       colors: ['#FFF'],
-                                      formatter: function (y, data) {  return y + '%' }
+                                      formatter: function (y) {  return y + '%' }
                                     });
 
                                 }
