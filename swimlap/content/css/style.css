@@ -1,0 +1,253 @@
+/* 
+    Document   : style
+    Created on : 13 avr. 2014, 09:51:52
+    Author     : perle
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*****General*************/
+root { display: block; }
+
+body {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Sniglet', cursive;
+    background: url("../images/background_full.png") repeat #046675;
+    color: #000;
+}
+
+.clear { clear: both; }
+
+.fleft { float: left; }
+
+.fright { float: right; }
+
+.active, .selected { color: #9E0016; }
+
+header {
+    position: fixed;
+    top: 0;
+    width: 80%;
+    padding: 0 10%;
+    background-color: #FFF;
+    border-bottom: 5px solid #212121;
+    z-index: 10;
+}
+
+header #menu { margin-top: 1%; width: 30%; }
+
+header #menu-lien { margin-left: 60%; }
+
+header #sous-menu-stat, header #sous-menu-setting { margin: 1%; color: #212121; text-align: right; border-top: 1px solid #9E0016; }
+
+header #sous-menu-stat li, header #sous-menu-setting li { display: inline; font-size: 14px; }
+
+header #sous-menu-stat li:hover, header #sous-menu-setting li:hover { color: #9E0016; }
+    
+h3 { font-weight: normal; text-transform: uppercase; }
+
+h4 { color: white; text-transform: uppercase; padding: 5px; text-align: center; }
+h4.title1 { background-color: #046675; }
+h4.title2 { background-color: #48999E; }
+
+h5 { color: #046675; font-size: 16px; margin: 0; text-transform: uppercase; }
+
+p { margin: 0; }
+/***************************/
+
+/*******Icone*********/
+span.icon {
+    background-image: url(../images/sprite_icon.png);
+    display: block;
+    width: 28px;
+    height: 28px;
+    margin-left:10px;
+    margin-right: 5px;
+}
+
+span.stat { background-position: 0 0; }
+span.stat:hover, span.stat.active { background-position: -37px 0; }
+
+span.setting { background-position: -74px 0; }
+span.setting:hover, span.setting.active { background-position: -111px 0; }
+
+span.home { background-position: -148px 0; }
+span.home:hover, span.home.active { background-position: -185px 0; }
+/********************/
+
+#content { position: absolute; width: 80%; margin: 5% 10% 2%; background-color: #FFF; min-height: 545px; }
+#content-left { width: 28%; border-right: 1px solid #000; }
+#content-right { width: 70%; }
+
+#setting-forms .section, #stat-forms .section, #form_record, #form_swimmer,#form_competition, #stat-performance, #stat-planning { display: none; }
+#setting-forms .section.put, #stat-forms .section.put { display: block; }
+
+form, #form_search { text-align: center; padding: 5px 20px; }
+
+.container {
+    margin: 0;
+    padding: 5px 20px;
+}
+
+#stat-performance fieldset, #stat-planning fieldset { width: 65%; }
+
+#repartition-swim-race span, #performance-swim-race span, #planning-swim-race span { background-color: #9E0016; color: #FFF; padding: 0 5px 2px; margin-right: 10px  }
+#repartition-swim-race, #performance-swim-race, #planning-swim-race { margin: 10px; border-top: #9e0016 1px solid; }
+
+/******Liste****************/
+ul { list-style-type: none; padding: 0; }
+
+li { margin: 5px; cursor: pointer; }
+.container li { border-bottom: 1px solid #046675; }
+.container li:last-child { border-bottom: none; }
+.container li:hover { color: #046675; }
+/***********************/
+
+#form_data .form_cancel { margin-top: 10px; }
+
+#setting-forms input:not([type="submit"]), select {
+    outline: none;
+    width: 20%;
+    padding: 0.5%;
+    border: 1px solid #212121;
+    margin: 1% 0 2%;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-transition: -moz-background 0.2s linear, -moz-box-shadow 0.6s linear;
+    -o-transition: -o-background 0.2s linear, -o-box-shadow 0.6s linear;
+    -webkit-transition: -webkit-background 0.2s linear, -webkit-box-shadow 0.6s linear;
+    transition: background 0.2s linear, box-shadow 0.6s linear;
+}
+
+#form_search select { width: 60%; }
+
+input:not([type="submit"]) {
+    outline: none;
+    width: auto;
+    padding: 1%;
+    border: 1px solid #212121;
+    margin: 1% 0 2%;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-transition: -moz-background 0.2s linear, -moz-box-shadow 0.6s linear;
+    -o-transition: -o-background 0.2s linear, -o-box-shadow 0.6s linear;
+    -webkit-transition: -webkit-background 0.2s linear, -webkit-box-shadow 0.6s linear;
+    transition: background 0.2s linear, box-shadow 0.6s linear;
+    text-align:  center;
+}
+
+.button {
+    background-color: #046675;
+    border: 1px solid #212121;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    color: #FFF;
+    height: 30px;
+    margin: 10px 0;
+    padding: 4px 10px;
+    display: inline-block;
+    line-height: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.button:hover { background-color: #9E0016; }
+button.add { margin-top: 22px; }
+
+a.button { height: 20px; font-family: arial; }
+
+#import button { background-color: #48999E; }
+
+#import {
+    position:relative;
+    width:250px;
+    height:32px;
+    overflow:hidden;
+    margin: 1%;
+}
+
+#import input {
+    position:absolute;
+    right:0;
+    top:0;
+    font-size:60px;
+    opacity:0;
+    -moz-opacity:0;
+    filter:alpha(opacity=0);
+    cursor:pointer;
+    text-align:right;
+}
+
+#stat-forms p { font-style: italic; font-size: 13px; }
+
+#add_swimmer, #add_competition, #add_record { float: right; }
+
+/*Morris*/
+.morris-hover {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    background-color: rgba(254,254,254,0.8);
+    padding: 10px;
+    border: 2px solid #d2d2d2;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.morris-hover-row-label { font-family: 'Sniglet', sans-serif; color:#3d3d3d; text-transform: uppercase; }
+
+.donuts, .donuts svg { width: 150px; height: 150px; }
+.donuts { float: left; }
+.donuts svg text tspan { font-size: 12px; }
+.donuts path { stroke: #046675; stroke-width: 2px; }
+
+.graph-div { 
+    display: table; 
+    table-layout: fixed; 
+    border-collapse: separate; 
+    border-spacing: 0 8px; 
+    width: 100%; 
+    border-radius: 8px; 
+}
+.graph-title, .graph-content { 
+    display: table-cell; 
+    vertical-align: top; 
+    height: 100%; 
+    width: 25%; 
+    margin: 2%; 
+    padding: 3% 1%;
+}
+.graph-title { width: 30%; background-color: #48999E; text-align: center; color: white; padding: 12% 0; font-size: 20px; }
+.graph-content { width: 70%; background-color: #D4DADC; }
+/**********/
+
+footer {
+    color: #212121;
+    position: fixed;
+    width: 100%;
+    background-color: #FFF;
+    border-top: 5px solid #212121;
+    bottom: 0px;
+    padding: 5px 0;
+}
+
+footer p { margin: 0; }
+
+/********Responsive***************/
+/*a revoir*/
+@media screen and (max-width: 1330px) and (min-width: 1235px) { #stat-performance fieldset, #stat-planning fieldset { width: 70%; } }
+@media screen and (max-width: 1235px) { #stat-performance fieldset, #stat-planning fieldset { width: 25%; } }
+@media screen and (max-width: 1100px) { #form_distribution fieldset {width: 25%; } }/*trouver pour form*/
+@media screen and (max-width: 1040px) { #content { margin-top: 10%; } }/*trouver pour form*/
+@media screen and (max-width: 690px) { #content { margin-top: 15%; } input:not([type="submit"]) { display: block; } }
+@media screen and (max-width: 580px) { #content { margin-top: 20%; } }
+@media screen and (max-width: 580px) { #content { margin-top: 35%; } }
+@media screen and (max-width: 330px) { #content { margin-top: 50%; } }
+/**********************************/
