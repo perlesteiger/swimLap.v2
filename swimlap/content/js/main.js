@@ -158,7 +158,6 @@ function createRepartition(nageur,compet,course,saison) {
                 while (i < tab.length) {
                     /*SI RECHERCHE PAR RACE*/
                     if (nageur === "" && course !== "") {
-                        console.log(nageur+' '+course);
                         /*INITIALISATION*/
                         if (i===0) {
                             //variable nageur et round
@@ -273,7 +272,6 @@ function createRepartition(nageur,compet,course,saison) {
                         }
                     /*SI RECHERCHE PAR NAGEUR OU PREMIER AFFICHAGE*/
                     } else if (course === "" || (course === "" && nageur === "")) {
-                        console.log('1');
                         /*INITIALISATION*/
                         if (i===0) {
                             //variable nageur et round
