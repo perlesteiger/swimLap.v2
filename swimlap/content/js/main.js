@@ -57,6 +57,25 @@ $(document).ready ( function () {
                 break;
         }
     });
+    $('#param-season li').click( function() {
+       var id = $('#type-stat').val();
+       var swimmer = $('.search_swimmer').val();
+       var meeting = $('.search_competition').val();
+       var race = $('.search_race').val();
+       var season = $(this).attr('id');
+       
+        switch (id) {
+            case 'repartition':
+                createRepartition(swimmer,meeting,race,season);
+                break;
+            case 'performance':
+                createPerformance(swimmer,meeting,race,season);
+                break;
+            case 'planning':
+                createPlanification(swimmer,race,season);
+                break;
+        }
+    });
     
     //pour choix season
     $('#param-season li').click( function () {
@@ -857,22 +876,22 @@ function createPerformance(nageur,compet,course,saison) {
     
 }
 function createPlanification(nageur,course,saison) {
-        //vider le graph
-        $('#graph-planning').html('');
+    //vider le graph
+    $('#graph-planning').html('');
     
-//    $.ajax({  
-//        //On utilise de l'ajax
-//        type: "POST",  //En post (envoi de données)
-//        url: '../../model/fonctions_request_stat.php', //On va chercher le fichier php
-//        data: "style=planification&nageur="+nageur+"&course="+course+"&saison="+saison, //On transmet les deux données pour l'exécution de la requête
-//        success: function(data) { 
-//            //Si le php renvoie quelque chose
-//            var graph=$.parseJSON(data);
+    $.ajax({  
+        //On utilise de l'ajax
+        type: "POST",  //En post (envoi de données)
+        url: '../model/fonctions_request_stat.php', //On va chercher le fichier php
+        data: "style=planification&nageur="+nageur+"&course="+course+"&saison="+saison, //On transmet les deux données pour l'exécution de la requête
+        success: function(data) { 
+            //Si le php renvoie quelque chose
+            var tab=$.parseJSON(data);
             
             //verification contenu
-//            if (!tab)
+            if (!tab)
                 $('#pb-planning').text("La recherche n'a pas abouti");
-//            else {
+            else {
                 $('#pb-planning').text("");
 
                 //remplissage des titres
@@ -886,26 +905,19 @@ function createPlanification(nageur,course,saison) {
                     $('#planning-swim-race').html('<span>'+race+'</span>');
                 else if (course !== "" && nageur !=="")
                     $('#planning-swim-race').html('<span>'+swimmer+'</span><span>'+race+'</span>');
-//            }
-//            //compet-percet
+            }
+
             //simple recuperation de donnees
-//            Morris.Bar({
-//                element: 'graph-planning',
-//                data: [
-//                  { y: '2006', a: 100, b: 90 },
-//                  { y: '2007', a: 75,  b: 65 },
-//                  { y: '2008', a: 50,  b: 40 },
-//                  { y: '2009', a: 75,  b: 65 },
-//                  { y: '2010', a: 50,  b: 40 },
-//                  { y: '2011', a: 75,  b: 65 },
-//                  { y: '2012', a: 100, b: 90 }
-//                ],
-//                xkey: 'y',
-//                ykeys: ['a', 'b'],
-//                labels: ['Series A', 'Series B']
-//              });
-//        }
-//    });
+            Morris.Bar({
+                element: 'graph-planning',
+                data: tab,
+                xkey: 'competition',
+                ykeys: ['percent'],
+                labels: ['Performance moyenne (%)'],
+                barColors: ['#046675']
+            });
+        }
+    });
     
 }
 

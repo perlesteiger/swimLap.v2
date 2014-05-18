@@ -113,7 +113,42 @@ switch ($type) {
         }
         break;
     case 'planification':
+        $tab=array();
+        if (!empty($id_race) && empty($id_swimmer)) {
 
+            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
+            $tab[] = array('competition'=>'Rencontre Poussins N°1', 'percent'=>'82');
+            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
+            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
+         
+        } else if (!empty($id_swimmer) && empty($id_race)) {
+
+            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
+            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
+            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
+            
+        } else if (empty($id_race) && empty($id_swimmer)) {
+
+            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
+            $tab[] = array('competition'=>'Rencontre Poussins N°1', 'percent'=>'82');
+            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
+            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
+            $tab[] = array('competition'=>'Meeting Benjamins N°2', 'percent'=>'88');
+            $tab[] = array('competition'=>'Rencontre Poussins N°5', 'percent'=>'62');
+            
+        } else if (!empty($id_race) && !empty($id_swimmer)) {
+
+            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
+            $tab[] = array('competition'=>'Rencontre Poussins N°1', 'percent'=>'82');
+            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
+            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
+            $tab[] = array('competition'=>'Meeting Benjamins N°2', 'percent'=>'99');
+            $tab[] = array('competition'=>'Rencontre Poussins N°5', 'percent'=>'63');
+            $tab[] = array('competition'=>'Championnats d Europe en petit bassin', 'percent'=>'68');
+            $tab[] = array('competition'=>'16e Meeting du Luxembourg', 'percent'=>'81');
+            
+        }
+        
         break;
 
     default:
