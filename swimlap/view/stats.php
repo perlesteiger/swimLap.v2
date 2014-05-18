@@ -23,6 +23,10 @@
         <script>
             $("header span.stat").addClass('active');
             $("#sous-menu-setting").hide();
+            //pour le mremier affichage
+            $(document).ready ( function () {
+               $('#button-valid-stat').click();             
+            });
         </script>
     </BODY>
 </HTML>

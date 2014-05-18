@@ -203,10 +203,21 @@ a.button { height: 20px; font-family: arial; }
 }
 .morris-hover-row-label { font-family: 'Sniglet', sans-serif; color:#3d3d3d; text-transform: uppercase; }
 
-.donuts, .donuts svg { width: 150px; height: 150px; }
-.donuts { float: left; }
+.donuts, .donuts svg, .reparts { width: 150px; height: 150px; }
+.donuts, .reparts { float: left; }
 .donuts svg text tspan { font-size: 12px; }
 .donuts path { stroke: #046675; stroke-width: 2px; }
+
+.graph-text { font-size: 35px; color: #046675; padding: 20%; }
+.graph-text-general { color: #046675; font-size: 23px; padding: 3%; }
+
+.reparts { border-right: 1px solid #046675; text-align: center; }
+#stat-forms .reparts p { font-size: 16px; }
+.reparts:last-child { border: none; }
+
+.reparts table { margin: 5% 25%; border-collapse: collapse; }
+.reparts table th { background: #046675; color: #FFF; padding: 3px; font-size: 12px; border: 1px solid #000; }
+.reparts table td { background: #FFF; border: 1px solid #000; font-size: 11px; }
 
 .graph-div { 
     display: table; 

@@ -79,7 +79,38 @@ switch ($type) {
         break;
 
     case 'performance':
+        //round-race-percent-id-swimmer ->faire moyenne
+        $tab=array();
+        if (!empty($id_race) && empty($id_swimmer)) {
 
+            $tab[] = array('round'=>'1ère', 'percent'=>'60', 'swimmer'=>'Fontaine Léa', 'race'=>'');
+            $tab[] = array('round'=>'Demi', 'percent'=>'25', 'swimmer'=>'Fontaine Léa', 'race'=>'');
+            $tab[] = array('round'=>'1ère', 'percent'=>'53', 'swimmer'=>'Pain Laeticia', 'race'=>'');
+            $tab[] = array('round'=>'Demi', 'percent'=>'54', 'swimmer'=>'Pain Laeticia', 'race'=>'');
+            $tab[] = array('round'=>'Finale', 'percent'=>'62', 'swimmer'=>'Pain Laeticia', 'race'=>'');
+            $tab[] = array('round'=>'1ère', 'percent'=>'50', 'swimmer'=>'Rosato Marine', 'race'=>'');
+         
+        } else if (!empty($id_swimmer) && empty($id_race)) {
+
+            $tab[] = array('round'=>'1ère', 'percent'=>'60', 'swimmer'=>'', 'race'=>'100m Nage Libre');
+            $tab[] = array('round'=>'Demi', 'percent'=>'25', 'swimmer'=>'', 'race'=>'100m Nage Libre');
+            $tab[] = array('round'=>'1ère', 'percent'=>'53', 'swimmer'=>'', 'race'=>'100m Dos');
+            $tab[] = array('round'=>'Demi', 'percent'=>'54', 'swimmer'=>'', 'race'=>'100m Dos');
+            $tab[] = array('round'=>'Finale', 'percent'=>'62', 'swimmer'=>'', 'race'=>'100m Dos');
+            $tab[] = array('round'=>'1ère', 'percent'=>'50', 'swimmer'=>'', 'race'=>'100m Papillon');
+            
+        } else if (empty($id_race) && empty($id_swimmer)) {
+
+            $tab[] = array('round'=>'1ère', 'percent'=>'60', 'swimmer'=>'Fontaine Léa', 'race'=>'100m Nage Libre');
+            $tab[] = array('round'=>'Demi', 'percent'=>'75', 'swimmer'=>'Fontaine Léa', 'race'=>'100m Nage Libre');
+            $tab[] = array('round'=>'1ère', 'percent'=>'40', 'swimmer'=>'Rosato Marine', 'race'=>'100m Nage Libre');
+            $tab[] = array('round'=>'Demi', 'percent'=>'25', 'swimmer'=>'Rosato Marine', 'race'=>'100m Nage Libre');
+            $tab[] = array('round'=>'1ère', 'percent'=>'53', 'swimmer'=>'Rosato Marine', 'race'=>'100m Dos');
+            $tab[] = array('round'=>'Demi', 'percent'=>'54', 'swimmer'=>'Rosato Marine', 'race'=>'100m Dos');
+            $tab[] = array('round'=>'Finale', 'percent'=>'62', 'swimmer'=>'Rosato Marine', 'race'=>'100m Dos');
+            $tab[] = array('round'=>'1ère', 'percent'=>'50', 'swimmer'=>'Pain Laeticia', 'race'=>'100m Papillon');
+            
+        }
         break;
     case 'planification':
 

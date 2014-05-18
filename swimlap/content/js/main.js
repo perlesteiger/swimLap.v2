@@ -392,19 +392,22 @@ function createRepartition(nageur,compet,course,saison) {
     });
 }
 function createPerformance(nageur,compet,course,saison) {
-//    $.ajax({  
+    //vider le graph
+    $('#graph-performance').html('');
+    
+    $.ajax({  
         //On utilise de l'ajax
-//        type: "POST",  //En post (envoi de données)
-//        url: '../../model/fonctions_request_stat.php', //On va chercher le fichier php
-//        data: "style=performance&nageur="+nageur+"&compet="+compet+"&course="+course+"&saison="+saison, //On transmet les deux données pour l'exécution de la requête
-//        success: function(data) { 
-//            //Si le php renvoie quelque chose
-//            var graph=$.parseJSON(data);
+        type: "POST",  //En post (envoi de données)
+        url: '../model/fonctions_request_stat.php', //On va chercher le fichier php
+        data: "style=performance&nageur="+nageur+"&compet="+compet+"&course="+course+"&saison="+saison, //On transmet les deux données pour l'exécution de la requête
+        success: function(data) { 
+            //Si le php renvoie quelque chose
+            var tab=$.parseJSON(data);
             
             //verification contenu
-//            if (!tab)
+            if (!tab)
                 $('#pb-performance').text("La recherche n'a pas abouti");
-//            else {
+            else {
                 $('#pb-performance').text("");
                 
                 //remplissage des titres
@@ -417,13 +420,446 @@ function createPerformance(nageur,compet,course,saison) {
                     $('#performance-swim-race').html('<span>'+swimmer+'</span>');
                 else if (nageur === "")
                     $('#performance-swim-race').html('<span>'+race+'</span>');
-//            }
-//            //round-race-percent-id-swimmer ->faire moyenne
-//        }
-//    });
+
+                //initialisation de toutes les variables necessaires
+                var i=0;
+                var div; var divTitle; var divContent;
+                var swim; var roun; var rac; 
+                var chaine_data; var total = new Array();
+
+                while (i < tab.length) {
+                    /*SI RECHERCHE PAR RACE*/
+                    if (nageur === "" && course !== "") {
+                        /*INITIALISATION*/
+                        if (i===0) {
+                            //variable nageur et round
+                            swim = tab[i].swimmer;
+                            roun = tab[i].round;
+
+                            //div necessaire
+                            div = $('<div class="graph-div"/>');
+                            divTitle = $('<div class="graph-title"/>');
+                            divContent = $('<div class="graph-content"/>');
+
+                            //remplissage de la vue
+                            divTitle.text(swim).appendTo(div);
+                            divContent.appendTo(div);
+                            div.appendTo('#graph-performance');
+
+                            //remplissage nbr pourcent
+                            chaine_data = tab[i].percent+' %';
+                        } else {
+                            //si toujours meme nageur
+                            if (swim === tab[i].swimmer) {
+                                    /*A CHAQUE TOUR CHANGEMENT DE ROUND*/
+                                    //creation pourcentage
+                                    var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                    divPourc.appendTo(divContent);                              
+
+                                    var divText= $('<div class="graph-text"/>');
+                                    var divSousText= $('<p/>');
+                                    divText.text(chaine_data).appendTo(divPourc);
+                                    divSousText.text(roun).appendTo(divPourc);
+                                    divPourc.appendTo(divContent);
+                                    
+                                    //changement de round
+                                    roun = tab[i].round;
+                                    //remplissage nbr pourcent
+                                    chaine_data = tab[i].percent+' %';
+
+                                    //si dernier tour
+                                    if (i === (tab.length-1)) {
+                                        //creation pourcentage
+                                        var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                        divPourc.appendTo(divContent);                              
+
+                                        var divText= $('<div class="graph-text"/>');
+                                        var divSousText= $('<p/>');
+                                        divText.text(chaine_data).appendTo(divPourc);
+                                        divSousText.text(roun).appendTo(divPourc);
+                                        divPourc.appendTo(divContent);
+
+                                    }
+                            //si nageur different
+                            } else {
+                                //creation pourcentage
+                                var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                divPourc.appendTo(divContent);                              
+
+                                var divText= $('<div class="graph-text"/>');
+                                var divSousText= $('<p/>');
+                                divText.text(chaine_data).appendTo(divPourc);
+                                divSousText.text(roun).appendTo(divPourc);
+                                divPourc.appendTo(divContent);
+
+                                //variable nageur et round
+                                swim = tab[i].swimmer;
+                                roun = tab[i].round;
+
+                                //div necessaire
+                                div = $('<div class="graph-div"/>');
+                                divTitle = $('<div class="graph-title"/>');
+                                divContent = $('<div class="graph-content"/>');
+
+                                //remplissage de la vue
+                                divTitle.text(swim).appendTo(div);
+                                divContent.appendTo(div);
+                                div.appendTo('#graph-performance');
+
+                                //remplissage nbr pourcent
+                                chaine_data = tab[i].percent+' %';
+
+                                //si dernier tour
+                                if (i === (tab.length-1)) {
+
+                                    //creation pourcentage
+                                    var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                    divPourc.appendTo(divContent);                              
+
+                                    var divText= $('<div class="graph-text"/>');
+                                    var divSousText= $('<p/>');
+                                    divText.text(chaine_data).appendTo(divPourc);
+                                    divSousText.text(roun).appendTo(divPourc);
+                                    divPourc.appendTo(divContent);
+
+                                }
+                            }
+                        }
+                    /*SI RECHERCHE PAR NAGEUR*/    
+                    } else if (course === "" && nageur !== "") {
+                        /*INITIALISATION*/
+                        if (i===0) {
+                            //variable race et round
+                            rac = tab[i].race;
+                            roun = tab[i].round;
+
+                            //div necessaire
+                            div = $('<div class="graph-div"/>');
+                            divTitle = $('<div class="graph-title"/>');
+                            divContent = $('<div class="graph-content"/>');
+
+                            //remplissage de la vue
+                            divTitle.text(rac).appendTo(div);
+                            divContent.appendTo(div);
+                            div.appendTo('#graph-performance');
+
+                            //remplissage nbr pourcent
+                            chaine_data = tab[i].percent+' %';
+                        } else {
+                            //si toujours meme race
+                            if (rac === tab[i].race) {
+                                /*A CHAQUE TOUR CHANGEMENT DE ROUND*/
+                                //creation pourcentage
+                                var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                divPourc.appendTo(divContent);                              
+
+                                var divText= $('<div class="graph-text"/>');
+                                var divSousText= $('<p/>');
+                                divText.text(chaine_data).appendTo(divPourc);
+                                divSousText.text(roun).appendTo(divPourc);
+                                divPourc.appendTo(divContent);
+
+                                //changement de round
+                                roun = tab[i].round;
+                                //remplissage nbr pourcent
+                                chaine_data = tab[i].percent+' %';
+
+                                //si dernier tour
+                                if (i === (tab.length-1)) {
+                                    //creation pourcentage
+                                    var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                    divPourc.appendTo(divContent);                              
+
+                                    var divText= $('<div class="graph-text"/>');
+                                    var divSousText= $('<p/>');
+                                    divText.text(chaine_data).appendTo(divPourc);
+                                    divSousText.text(roun).appendTo(divPourc);
+                                    divPourc.appendTo(divContent);
+
+                                }
+                            //si race different
+                            } else {
+                                //creation pourcentage
+                                var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                divPourc.appendTo(divContent);                              
+
+                                var divText= $('<div class="graph-text"/>');
+                                var divSousText= $('<p/>');
+                                divText.text(chaine_data).appendTo(divPourc);
+                                divSousText.text(roun).appendTo(divPourc);
+                                divPourc.appendTo(divContent);
+
+                                //variable race et round
+                                rac = tab[i].race;
+                                roun = tab[i].round;
+
+                                //div necessaire
+                                div = $('<div class="graph-div"/>');
+                                divTitle = $('<div class="graph-title"/>');
+                                divContent = $('<div class="graph-content"/>');
+
+                                //remplissage de la vue
+                                divTitle.text(rac).appendTo(div);
+                                divContent.appendTo(div);
+                                div.appendTo('#graph-performance');
+
+                                //remplissage nbr pourcent
+                                chaine_data = tab[i].percent+' %';
+
+                                //si dernier tour
+                                if (i === (tab.length-1)) {
+                                    //creation pourcentage
+                                    var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                    divPourc.appendTo(divContent);                              
+
+                                    var divText= $('<div class="graph-text"/>');
+                                    var divSousText= $('<p/>');
+                                    divText.text(chaine_data).appendTo(divPourc);
+                                    divSousText.text(roun).appendTo(divPourc);
+                                    divPourc.appendTo(divContent);
+
+                                }
+                            }
+                        }
+                    /*SI PREMIER AFFICHAGE*/    
+                    } else if (course === "" && nageur === "") {
+                        /*INITIALISATION*/
+                        if (i===0) {
+                            //variable race et round
+                            rac = tab[i].race;
+                            swim = tab[i].swimmer;
+                            roun = tab[i].round;
+
+                            //div necessaire
+                            div = $('<div class="graph-div"/>');
+                            divTitle = $('<div class="graph-title"/>');
+                            divContent = $('<div class="graph-content"/>');
+
+                            //remplissage de la vue
+                            divTitle.text(rac).appendTo(div);
+                            divContent.appendTo(div);
+                            div.appendTo('#graph-performance');
+
+                            //remplissage nbr pourcent                            
+                            chaine_data = {round:roun,percent:tab[i].percent};
+                            total.push(chaine_data);
+                        } else {
+                            //si toujours meme race
+                            if (rac === tab[i].race) {
+                                if (swim === tab[i].swimmer) { 
+                                    /*A CHAQUE TOUR CHANGEMENT DE ROUND*/
+                                    //changement de round
+                                    roun = tab[i].round;
+                                    
+                                    //Remplir le tableau
+                                    chaine_data = {round:roun,percent:tab[i].percent};
+                                    total.push(chaine_data);
+                                    
+                                    //si dernier tour
+                                    if (i === (tab.length-1)) {
+                                        //creation pourcentage
+                                        var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                        divPourc.appendTo(divContent);    
+                                        var divSousTitle = $('<div/>');
+                                        divSousTitle.text(swim).appendTo(divPourc);
+                                        var divTable= $('<table/>');
+                                        var th = $('<thead><th>Round</th><th>Perf</th></thead>');
+                                        th.appendTo(divTable);
+                                        var body = $('<tbody/>');
+
+                                        //calcul de la moyenne
+                                        var temp=0;
+                                        for (var j=0; j <total.length;j++) {
+                                           temp = temp + parseInt(total[j].percent);
+
+                                           var tr = $('<tr/>');                                       
+                                           var td1 = $('<td/>');
+                                           td1.text(total[j].round).appendTo(tr);
+                                           var td2 = $('<td/>');
+                                           td2.text(total[j].percent+' %').appendTo(tr);
+                                           tr.appendTo(body);                                      
+                                        }
+                                        body.appendTo(divTable);
+
+                                        var moy = Math.round(temp/total.length*100)/100;
+                                        var divText= $('<div class="graph-text-general"/>');
+                                        divText.text(moy+' %').appendTo(divPourc);
+                                        divTable.appendTo(divPourc);
+                                        divPourc.appendTo(divContent);
+
+                                    }
+                                } else {                                   
+                                    //creation pourcentage 
+                                    var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                    divPourc.appendTo(divContent);             
+                                    var divSousTitle = $('<div/>');
+                                    divSousTitle.text(swim).appendTo(divPourc);
+                                    var divTable= $('<table/>');
+                                    var th = $('<thead><th>Round</th><th>Perf</th></thead>');
+                                    th.appendTo(divTable);
+                                    var body = $('<tbody/>');
+                                    
+                                    //calcul de la moyenne
+                                    var temp=0;
+                                    for (var j=0; j <total.length;j++) {
+                                       temp = temp + parseInt(total[j].percent);
+                                       
+                                       var tr = $('<tr/>');                                       
+                                       var td1 = $('<td/>');
+                                       td1.text(total[j].round).appendTo(tr);
+                                       var td2 = $('<td/>');
+                                       td2.text(total[j].percent+' %').appendTo(tr);
+                                       tr.appendTo(body);                                      
+                                    }
+                                    body.appendTo(divTable);
+                                    
+                                    var moy = Math.round(temp/total.length*100)/100;
+                                    var divText= $('<div class="graph-text-general"/>');
+                                    divText.text(moy+' %').appendTo(divPourc);
+                                    divTable.appendTo(divPourc);
+                                    divPourc.appendTo(divContent);
+
+                                    //changement de round
+                                    swim = tab[i].swimmer;
+                                    roun = tab[i].round;
+                                    //remplissage nbr pourcent
+                                    total=[];
+                                    chaine_data = {round:roun,percent:tab[i].percent};
+                                    total.push(chaine_data);
+
+                                    //si dernier tour
+                                    if (i === (tab.length-1)) {
+                                        //creation pourcentage
+                                        var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                        divPourc.appendTo(divContent);    
+                                        var divSousTitle = $('<div/>');
+                                        divSousTitle.text(swim).appendTo(divPourc);
+                                        var divTable= $('<table/>');
+                                        var th = $('<thead><th>Round</th><th>Perf</th></thead>');
+                                        th.appendTo(divTable);
+                                        var body = $('<tbody/>');
+
+                                        //calcul de la moyenne
+                                        var temp=0;
+                                        for (var j=0; j <total.length;j++) {
+                                           temp = temp + parseInt(total[j].percent);
+
+                                           var tr = $('<tr/>');                                       
+                                           var td1 = $('<td/>');
+                                           td1.text(total[j].round).appendTo(tr);
+                                           var td2 = $('<td/>');
+                                           td2.text(total[j].percent+' %').appendTo(tr);
+                                           tr.appendTo(body);                                      
+                                        }
+                                        body.appendTo(divTable);
+
+                                        var moy = Math.round(temp/total.length*100)/100;;
+                                        var divText= $('<div class="graph-text-general"/>');
+                                        divText.text(moy+' %').appendTo(divPourc);
+                                        divTable.appendTo(divPourc);
+                                        divPourc.appendTo(divContent);
+
+                                    }
+                                }
+                            //si race different
+                            } else {
+                                //creation pourcentage
+                                var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                divPourc.appendTo(divContent);       
+                                var divSousTitle = $('<div/>');
+                                divSousTitle.text(swim).appendTo(divPourc);
+                                var divTable= $('<table/>');
+                                var th = $('<thead><th>Round</th><th>Perf</th></thead>');
+                                th.appendTo(divTable);
+                                var body = $('<tbody/>');
+
+                                //calcul de la moyenne
+                                var temp=0;  
+                                for (var j=0; j <total.length;j++) {
+                                   temp = temp + parseInt(total[j].percent);
+
+                                   var tr = $('<tr/>');                                       
+                                   var td1 = $('<td/>');
+                                   td1.text(total[j].round).appendTo(tr);
+                                   var td2 = $('<td/>');
+                                   td2.text(total[j].percent+' %').appendTo(tr);
+                                   tr.appendTo(body);                                      
+                                }
+                                body.appendTo(divTable);
+
+                                var moy = Math.round(temp/total.length*100)/100;
+                                var divText= $('<div class="graph-text-general"/>');
+                                divText.text(moy+' %').appendTo(divPourc);
+                                divTable.appendTo(divPourc);
+                                divPourc.appendTo(divContent);
+                                    
+                                //variable race et round
+                                rac = tab[i].race;                              
+                                swim = tab[i].swimmer;
+                                roun = tab[i].round;
+
+                                //div necessaire
+                                div = $('<div class="graph-div"/>');
+                                divTitle = $('<div class="graph-title"/>');
+                                divContent = $('<div class="graph-content"/>');
+
+                                //remplissage de la vue
+                                divTitle.text(rac).appendTo(div);
+                                divContent.appendTo(div);
+                                div.appendTo('#graph-performance');
+
+                                //remplissage nbr pourcent
+                                total=[];
+                                chaine_data = {round:roun,percent:tab[i].percent};
+                                total.push(chaine_data);
+
+                                //si dernier tour
+                                if (i === (tab.length-1)) {
+                                    //creation pourcentage
+                                    var divPourc= $('<div id="repart-'+i+'" class="reparts"/>');
+                                    divPourc.appendTo(divContent);   
+                                    var divSousTitle = $('<div/>');
+                                    divSousTitle.text(swim).appendTo(divPourc);
+                                    var divTable= $('<table/>');
+                                    var th = $('<thead><th>Round</th><th>Perf</th></thead>');
+                                    th.appendTo(divTable);
+                                    var body = $('<tbody/>');
+
+                                    //calcul de la moyenne
+                                    var temp=0;
+                                    for (var j=0; j <total.length;j++) {
+                                       temp = temp + parseInt(total[j].percent);
+
+                                       var tr = $('<tr/>');                                       
+                                       var td1 = $('<td/>');
+                                       td1.text(total[j].round).appendTo(tr);
+                                       var td2 = $('<td/>');
+                                       td2.text(total[j].percent+' %').appendTo(tr);
+                                       tr.appendTo(body);                                      
+                                    }
+                                    body.appendTo(divTable);
+
+                                    var moy = Math.round(temp/total.length*100)/100;
+                                    var divText= $('<div class="graph-text-general"/>');
+                                    divText.text(moy+' %').appendTo(divPourc);
+                                    divTable.appendTo(divPourc);
+                                    divPourc.appendTo(divContent);
+
+                                }
+                            }
+                        }
+                    }
+                    i++;
+                }
+            }
+        }
+    });
     
 }
 function createPlanification(nageur,course,saison) {
+        //vider le graph
+        $('#graph-planning').html('');
+    
 //    $.ajax({  
 //        //On utilise de l'ajax
 //        type: "POST",  //En post (envoi de données)
