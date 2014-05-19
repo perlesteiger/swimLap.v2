@@ -899,12 +899,14 @@ function createPlanification(nageur,course,saison) {
                 var race = $('.search_race option:selected').text();
 
                 $('#planning-title').text('Planification sur la saison');
-                if (course === "")
+                if (course === "" && nageur !=="")
                     $('#planning-swim-race').html('<span>'+swimmer+'</span>');
-                else if (nageur === "")
+                else if (nageur === "" && course !=="")
                     $('#planning-swim-race').html('<span>'+race+'</span>');
                 else if (course !== "" && nageur !=="")
                     $('#planning-swim-race').html('<span>'+swimmer+'</span><span>'+race+'</span>');
+                else if (course === "" && nageur ==="")
+                    $('#planning-swim-race').html('<span>Tous nageurs</span><span>Toutes nages</span>');
             }
 
             //simple recuperation de donnees

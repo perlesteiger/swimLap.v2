@@ -40,7 +40,7 @@ header #menu { margin-top: 1%; width: 30%; }
 
 header #menu-lien { margin-left: 60%; }
 
-header #sous-menu-stat, header #sous-menu-setting { margin: 1%; color: #212121; text-align: right; border-top: 1px solid #9E0016; }
+header #sous-menu-stat, header #sous-menu-setting { margin: 1%; color: #212121; text-align: right; border-top: 1px solid #9E0016; display: none; }
 
 header #sous-menu-stat li, header #sous-menu-setting li { display: inline; font-size: 14px; }
 

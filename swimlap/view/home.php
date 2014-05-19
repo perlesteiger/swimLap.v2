@@ -19,6 +19,9 @@
             $("header span.home").addClass('active');
             $("#sous-menu-stat").hide();
             $("#sous-menu-setting").hide();
+            //lancement planification
+            var season = $('#param-season li.selected').attr('id');
+            createPlanification('','',season);
         </script>
     </BODY>
 </HTML>

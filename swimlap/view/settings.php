@@ -28,9 +28,12 @@
         </div>
         <?php include INCLUDES."footer.php"?>
         <script>
-            $("header span.setting").addClass('active');
-            $("#sous-menu-stat").hide();
-            $("#param").hide();
+            //pour le premier affichage
+            $(document).ready ( function () {
+                $("header span.setting").addClass('active');
+                $("#sous-menu-setting").show();
+                $("#param").hide();
+            });
         </script>
     </BODY>
 </HTML>

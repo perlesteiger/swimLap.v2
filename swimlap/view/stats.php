@@ -21,10 +21,10 @@
         </div>
         <?php include INCLUDES."footer.php"?>
         <script>
-            $("header span.stat").addClass('active');
-            $("#sous-menu-setting").hide();
-            //pour le mremier affichage
+            //pour le premier affichage
             $(document).ready ( function () {
+               $("header span.stat").addClass('active');
+               $("#sous-menu-stat").show();
                $('#button-valid-stat').click();             
             });
         </script>
