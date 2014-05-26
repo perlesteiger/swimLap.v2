@@ -1,6 +1,22 @@
 <?php
 // Connexion, sélection de la base de données
-function connect_bdd() {
+	function connect_bdd() {
+		$host = 'localhost';
+		$dbname = 'swimlapbd';
+		$user = 'admin';
+		$password = 'admin';
+
+		$dbconn = pg_connect("host=".$host."
+                                      dbname=".$dbname."
+                                      user=".$user."
+                                      password=".$password)
+			or die('Connexion impossible : ' . pg_last_error());
+		
+		return $dbconn;
+	}
+
+// Connexion, sélection de la base de données
+/*function connect_bdd() {
     $host = 'localhost';
     $dbname = 'postgres';
     $user = 'postgres';
@@ -13,7 +29,7 @@ function connect_bdd() {
         or die('Connexion impossible : ' . pg_last_error());
     
     return $dbconn;
-}
+}*/
 
 //recuperer le nom du club
 function recoverClub() {
@@ -91,7 +107,7 @@ function recoverRecord() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-    $query = 'SELECT rac_style, rac_dist, rec_swimtime_25, rec_swimtime_50, swi_lastname, swi_firstname FROM t_j_record_rec 
+    $query = 'SELECT rac_name, rec_swimtime_25, rec_swimtime_50, swi_lastname, swi_firstname FROM t_j_record_rec 
                 JOIN t_e_swimmer_swi ON rec_swi_id = swi_id
                 JOIN t_e_race_rac ON rec_rac_id = rac_id';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
@@ -103,7 +119,7 @@ function recoverRecord() {
         else $pool25 = $line->rec_swimtime_25;
         if (empty($line->rec_swimtime_50)) $pool50 = 'pas de temps enregistré';
         else $pool50 = $line->rec_swimtime_50;
-        array_push($list_record, $line->swi_lastname." ".$line->swi_firstname."|".$pool25."|".$pool50."|".$line->rac_dist."|".$line->rac_style);
+        array_push($list_record, $line->swi_lastname." ".$line->swi_firstname."|".$pool25."|".$pool50."|".$line->rac_name);
     }
     
     // Ferme la connexion

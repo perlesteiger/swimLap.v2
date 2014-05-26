@@ -21,6 +21,12 @@
                             case 'competition' :
                                 $chaine = 'La compétition : '.$_GET['name']." (".$_GET['city'].", ".$_GET['begin']." / ".$_GET['end'].") a bien été enregistrée.";
                             break;
+                            case 'import' :
+                                $chaine = 'Le fichier a été importé avec succès';
+                            break;
+                            case 'export' :
+                                $chaine = 'Le fichier a été exporté avec succès.\nChemin du fichier : '.$_GET['filePath'];
+                            break;
                             default:
                             break;
                     }?>

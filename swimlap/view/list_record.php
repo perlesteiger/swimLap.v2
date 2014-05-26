@@ -4,7 +4,7 @@
     <ul id="list_record">
         <?php foreach ($record as $rec) {
             $rec = explode("|", $rec);
-            echo '<li><p>'.$rec[0].'</p><p>Type de course : '.$rec[3].' '.$rec[4].'</p><p>Record en 25m : '.$rec[1].'</p><p>Record en 50m : '.$rec[2].'</p></li>';
+            echo '<li><p>'.$rec[0].'</p><p>Type de course : '.$rec[3].'</p><p>Record en 25m : '.$rec[1].'</p><p>Record en 50m : '.$rec[2].'</p></li>';
         } ?>
     </ul>
 </div>

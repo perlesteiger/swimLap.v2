@@ -1,5 +1,6 @@
 <?php
 include '../var.prepend.php';
+include MODEL.'fonctions_parserXML.php';
 include MODEL.'fonctions.inc.php';
 
 $type = $_POST['type_form'];
@@ -8,12 +9,10 @@ switch ($type) {
     case 'general':
         $new_name = $_POST['general_club'];
         $id = $_POST['general_id'];
-        
         $update_name = updateClub($new_name, $id);
 
         //ajouter condition si non reussi
         header("Location: ".VIEW."result.php?form=general&new=".$new_name);
-
         break;
 
     case 'swimmer':
@@ -27,8 +26,8 @@ switch ($type) {
 
         //ajouter condition si non reussi
         header("Location: ".VIEW."result.php?form=swimmer&name=".$lastname."&first=".$firstname."&id=".$id."&birth=".$birth."&genre=".$sexe);
-
         break;
+    
     case 'record':
         $record = $_POST['record_new'];
         $id_swimmer = $_POST['record_swimmer'];
@@ -39,8 +38,8 @@ switch ($type) {
 
         //ajouter condition si non reussi
         header("Location: ".VIEW."result.php?form=record&name=".$id_swimmer."&record=".$record."&pool=".$pool."&race=".$race);
-
         break;
+    
     case 'competition':
         $id = $_POST['competition_id'];
         $begin = $_POST['competition_begin'];
@@ -54,8 +53,32 @@ switch ($type) {
 
         //ajouter condition si non reussi
         header("Location: ".VIEW."result.php?form=competition&name=".$name."&begin=".$begin."&end=".$end."&city=".$city);
-
         break;
+    
+    case 'import':
+        // On récupère le fichier
+        $saveTo = '../content/FFNEX/';
+        $uploadFile = $saveTo.basename($_FILES['import_file']['name']);
+        if (move_uploaded_file($_FILES['import_file']['tmp_name'], $uploadFile)) {
+            echo "Le fichier est valide, et a été téléchargé
+                   avec succès.";
+        } else {
+            echo "Attaque potentielle par téléchargement de fichiers.";
+        }
+
+        if(isset($uploadFile)) {
+            XMLParser($uploadFile);
+        }
+        header("Location: ".VIEW."result.php?form=import");
+        break;
+    
+    case 'export':
+        $path = $_POST['filePath'];
+
+        //ajouter condition si non reussi
+        header("Location: ".VIEW."result.php?form=export&filePath=".$path);
+        break;
+    
     default:
         break;
 }

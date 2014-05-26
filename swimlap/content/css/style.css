@@ -162,6 +162,14 @@ button.add { margin-top: 22px; }
 
 a.button { height: 20px; font-family: arial; }
 
+/* Import - Export */
+.file_block { padding: 5px 20px; }
+.file_block form { text-align: left; }
+.file_block form #import_file { width: 335px; }
+.file_block form select { width: 400px; }
+.file_block label {margin-right: 5px; }
+
+
 #import button { background-color: #48999E; }
 
 #import {

@@ -10,7 +10,10 @@ $(document).ready ( function () {
        $("form").hide();
        $('#section_'+id).addClass("put");
        //exception pour data
-       if (id ==="data") $("#form_data").show();
+       if (id ==="data") {
+           $("#form_import").show();
+           $("#form_export").show();
+       }
     });
     
     //changer contenu des statistiques
