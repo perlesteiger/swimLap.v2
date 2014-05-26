@@ -1,5 +1,5 @@
 <?php 
     $meetings = recoverCompetition();
-    include VIEW.'import_export.php';
+    include VIEW.'import_file.php';
 ?>
 

@@ -103,6 +103,8 @@ li { margin: 5px; cursor: pointer; }
 .container li { border-bottom: 1px solid #046675; }
 .container li:last-child { border-bottom: none; }
 .container li:hover { color: #046675; }
+
+#list_competition li:hover, #list_swimmer li:hover, #list_record li:hover { color: #000; cursor: initial; }
 /***********************/
 
 #form_data .form_cancel { margin-top: 10px; }
@@ -161,14 +163,6 @@ input:not([type="submit"]) {
 button.add { margin-top: 22px; }
 
 a.button { height: 20px; font-family: arial; }
-
-/* Import - Export */
-.file_block { padding: 5px 20px; }
-.file_block form { text-align: left; }
-.file_block form #import_file { width: 335px; }
-.file_block form select { width: 400px; }
-.file_block label {margin-right: 5px; }
-
 
 #import button { background-color: #48999E; }
 
@@ -247,6 +241,8 @@ a.button { height: 20px; font-family: arial; }
 .graph-content { width: 70%; background-color: #D4DADC; }
 /**********/
 
+#mention-p { margin: 6% 0 6% 20%; width: 100%;}
+
 footer {
     color: #212121;
     position: fixed;
@@ -258,6 +254,14 @@ footer {
 }
 
 footer p { margin: 0; }
+
+footer a { 
+    font-size: 11px;
+    color: #000;
+    text-decoration: initial;
+    margin-left: 15px; 
+}
+footer a:hover { color: #9E0016; }
 
 /********Responsive***************/
 /*a revoir*/

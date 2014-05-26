@@ -1,22 +1,22 @@
 <?php
 // Connexion, sélection de la base de données
-	function connect_bdd() {
-		$host = 'localhost';
-		$dbname = 'swimlapbd';
-		$user = 'admin';
-		$password = 'admin';
-
-		$dbconn = pg_connect("host=".$host."
-                                      dbname=".$dbname."
-                                      user=".$user."
-                                      password=".$password)
-			or die('Connexion impossible : ' . pg_last_error());
-		
-		return $dbconn;
-	}
+//    function connect_bdd() {
+//            $host = 'localhost';
+//            $dbname = 'swimlapbd';
+//            $user = 'admin';
+//            $password = 'admin';
+//
+//            $dbconn = pg_connect("host=".$host."
+//                                  dbname=".$dbname."
+//                                  user=".$user."
+//                                  password=".$password)
+//                    or die('Connexion impossible : ' . pg_last_error());
+//
+//            return $dbconn;
+//    }
 
 // Connexion, sélection de la base de données
-/*function connect_bdd() {
+function connect_bdd() {
     $host = 'localhost';
     $dbname = 'postgres';
     $user = 'postgres';
@@ -29,7 +29,7 @@
         or die('Connexion impossible : ' . pg_last_error());
     
     return $dbconn;
-}*/
+}
 
 //recuperer le nom du club
 function recoverClub() {

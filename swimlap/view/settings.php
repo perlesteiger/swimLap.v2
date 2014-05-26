@@ -15,7 +15,7 @@
             <div class="fleft" id="content-right">
                 <div id="setting-forms">
                     <?php include CONTROLLER."controller_add_general.php"?>
-                    <?php include CONTROLLER."controller_import_export.php"?>
+                    <?php include CONTROLLER."controller_import_file.php"?>
                     <?php include CONTROLLER."controller_list_competition.php"?>
                     <?php include CONTROLLER."controller_list_swimmer.php"?>
                     <?php include CONTROLLER."controller_list_record.php"?>
