@@ -169,7 +169,8 @@ a.button { height: 20px; font-family: arial; }
 .file_block form { text-align: left; }
 .file_block form #import_file { width: 335px; }
 .file_block form select { width: 400px; }
-.file_block label {margin-right: 5px; }
+.file_block label { margin-right: 5px; }
+.file_block #importBtn { background-image: url(../images/down4.png); background-repeat: no-repeat; padding-left: 30px; }
 
 #stat-forms p { font-style: italic; font-size: 13px; }
 
