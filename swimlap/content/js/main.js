@@ -12,7 +12,6 @@ $(document).ready ( function () {
        //exception pour data
        if (id ==="data") {
            $("#form_import").show();
-           $("#form_export").show();
        }
     });
     
@@ -110,7 +109,7 @@ $(document).ready ( function () {
         $(this).addClass("active");
     }); 
     
-    //pour import/export au passage souris
+    //pour import au passage souris
     $("#data_import").mousemove( function() {
        
         $("#import button").css( {

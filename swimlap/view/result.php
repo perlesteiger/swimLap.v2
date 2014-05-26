@@ -24,9 +24,6 @@
                             case 'import' :
                                 $chaine = 'Le fichier a été importé avec succès';
                             break;
-                            case 'export' :
-                                $chaine = 'Le fichier a été exporté avec succès.\nChemin du fichier : '.$_GET['filePath'];
-                            break;
                             default:
                             break;
                     }?>
