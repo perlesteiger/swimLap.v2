@@ -18,7 +18,7 @@
 // Connexion, sélection de la base de données
 function connect_bdd() {
     $host = 'localhost';
-    $dbname = 'postgres';
+    $dbname = 'swimlap';
     $user = 'postgres';
     $password = 'postgres';
 

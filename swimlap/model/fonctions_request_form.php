@@ -71,15 +71,5 @@ switch ($type) {
         }
         header("Location: ".VIEW."result.php?form=import");
         break;
-    
-    case 'export':
-        $path = $_POST['filePath'];
-
-        //ajouter condition si non reussi
-        header("Location: ".VIEW."result.php?form=export&filePath=".$path);
-        break;
-    
-    default:
-        break;
 }
 ?>
