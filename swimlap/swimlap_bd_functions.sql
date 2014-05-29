@@ -236,6 +236,7 @@ INSERT INTO t_e_round_rou(rou_id, rou_name)
 VALUES (43, '1/4 Finale (3)');
 INSERT INTO t_e_round_rou(rou_id, rou_name)
 VALUES (44, '1/4 Finale (4)');
+INSERT INTO t_e_round_rou(rou_id, rou_name)
 VALUES (49, 'Barrage 1/4 Finales');
 
 INSERT INTO t_e_round_rou(rou_id, rou_name)
@@ -385,6 +386,9 @@ VALUES (242, '400 4 Nages', false, 'Mixed');
 -- =======================================================================================================================================================================================
 -- 				PROCEDURES STOCKEES
 -- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION POUR L'AJOUT D'UN EVENEMENT                                                            	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 -- Function: ps_insertnewevent(character varying, integer, integer, integer)
 
 -- DROP FUNCTION ps_insertnewevent(character varying, integer, integer, integer);
@@ -410,6 +414,9 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION POUR L'AJOUT D'UN MEETING	                                                            	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 -- Function: ps_insertnewmeeting(integer, character varying, character varying, date, date, integer, integer)
 
 -- DROP FUNCTION ps_insertnewmeeting(integer, character varying, character varying, date, date, integer, integer);
@@ -430,6 +437,9 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION POUR L'AJOUT D'UN RESULTAT                                                            	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 -- Function: ps_insertnewresult(integer, integer, numeric, integer, numeric[])
 
 -- DROP FUNCTION ps_insertnewresult(integer, integer, numeric, integer, numeric[]);
@@ -448,6 +458,9 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION POUR L'AJOUT D'UN NAGEUR	                                                            	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
 -- Function: ps_insertnewswimmer(integer, character varying, character varying, date, character, integer)
 
 -- DROP FUNCTION ps_insertnewswimmer(integer, character varying, character varying, date, character, integer);
@@ -468,11 +481,14 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
--- Function: check_records()
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION DE MISE A JOUR DE TOUS LES RECORDS                                                           	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_check_records()
 
--- DROP FUNCTION check_records();
+-- DROP FUNCTION ps_check_records();
 
-CREATE OR REPLACE FUNCTION check_records()
+CREATE OR REPLACE FUNCTION ps_check_records()
   RETURNS boolean AS
 $BODY$
 DECLARE
@@ -484,7 +500,7 @@ BEGIN
 				JOIN t_e_event_eve ON res_eve_id = eve_id
 			ORDER BY res_swi_id ASC
 	LOOP
-		v_is_new_record := isBestTime(result.res_swim_time, result.res_swi_id, result.eve_rac_id, result.res_step);
+		v_is_new_record := ps_isbesttime(result.res_swim_time, result.res_swi_id, result.eve_rac_id, result.res_step);
 	END LOOP;
 	RETURN v_is_new_record;
 END;
@@ -492,11 +508,14 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
--- Function: check_record_for_meeting(integer)
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION DE MISE A JOUR DES NOUVEAUX RECORDS D'UN MEETING                                             	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_check_record_for_meeting(integer)
 
--- DROP FUNCTION check_record_for_meeting(integer);
+-- DROP FUNCTION ps_check_record_for_meeting(integer);
 
-CREATE OR REPLACE FUNCTION check_record_for_meeting(v_mee_id integer)
+CREATE OR REPLACE FUNCTION ps_check_record_for_meeting(v_mee_id integer)
   RETURNS boolean AS
 $BODY$
 DECLARE
@@ -509,7 +528,7 @@ BEGIN
 			WHERE eve_mee_id = v_mee_id
 			ORDER BY res_swi_id ASC
 	LOOP
-		v_is_new_record := isBestTime(result.res_swim_time, result.res_swi_id, result.eve_rac_id, result.res_step);
+		v_is_new_record := ps_isbesttime(result.res_swim_time, result.res_swi_id, result.eve_rac_id, result.res_step);
 	END LOOP;
 	RETURN v_is_new_record;
 END;
@@ -517,11 +536,14 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
--- Function: isbesttime(numeric, integer, integer, integer)
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION DE COMPARAISON DES TEMPS POUR LES RECORDS                                                    	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_isbesttime(numeric, integer, integer, integer)
 
--- DROP FUNCTION isbesttime(numeric, integer, integer, integer);
+-- DROP FUNCTION ps_isbesttime(numeric, integer, integer, integer);
 
-CREATE OR REPLACE FUNCTION isbesttime(swimtime numeric, swimmer integer, race integer, pool_size integer)
+CREATE OR REPLACE FUNCTION ps_isbesttime(swimtime numeric, swimmer integer, race integer, pool_size integer)
   RETURNS boolean AS
 $BODY$
 DECLARE
@@ -559,3 +581,406 @@ BEGIN
 END;
 $BODY$
   LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION DE DIVISION D'UNE TABLE DE POURCENTAGES                                                      	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_divide_perc_tab(numeric[], numeric)
+
+-- DROP FUNCTION ps_divide_perc_tab(numeric[], numeric);
+
+CREATE OR REPLACE FUNCTION ps_divide_perc_tab(p_tab numeric[], div_by numeric)
+  RETURNS numeric[] AS
+$BODY$
+DECLARE
+	i integer := 1;
+	percentage numeric(10,2);
+	perc_tab numeric(10,2)[];
+BEGIN
+	FOREACH percentage IN ARRAY $1
+	LOOP
+		IF $2 - 1.00 <> 0 THEN
+		    perc_tab[i] := trunc(percentage/($2 - 1.00), 2);
+		    i := i + 1;
+		END IF;
+	END LOOP;
+	RETURN perc_tab;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION DE CALCUL DE LA REPARTITION EN POURCENTAGE                                                   	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_calcul_repartition(numeric, numeric[])
+
+-- DROP FUNCTION ps_calcul_repartition(numeric, numeric[]);
+
+CREATE OR REPLACE FUNCTION ps_calcul_repartition(swimtime numeric, splits numeric[])
+  RETURNS numeric[] AS
+$BODY$
+DECLARE
+	v_cpt integer := 1;
+	v_prev_split numeric(10,4) := 0.0000;
+	split numeric(10,4);
+	v_repartition numeric(10,2)[];
+BEGIN
+	FOREACH split IN ARRAY $2
+	LOOP
+		v_repartition[v_cpt] := (split - v_prev_split)/swimtime*100;
+		v_prev_split := split;
+		v_cpt := v_cpt + 1;
+	END LOOP;
+	RETURN v_repartition;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION QUI RENVOIE LA REPARTITION SUR UN MEETING, TOUS NAGEURS, TOUTES COURSES	              	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_get_repartition_by_meeting(integer)
+
+-- DROP FUNCTION ps_get_repartition_by_meeting(integer);
+
+CREATE OR REPLACE FUNCTION ps_get_repartition_by_meeting(IN meeting integer)
+  RETURNS TABLE(race_id integer, race_name character varying, round_name character varying, repartitions numeric[], length integer) AS
+$BODY$
+DECLARE
+	result RECORD;
+	v_rep_result numeric(10,2)[];
+	v_round_name varchar(50);
+
+	v_cpt integer;
+	v_nb_rep numeric(10,2) := 1.00;
+	v_race integer;
+	v_round varchar(50);
+	v_perc numeric(10,2);
+	v_perc_tab numeric(10,2)[];
+	rep RECORD;
+
+	v_last_rep integer;
+	v_depth integer := 0;
+BEGIN
+	DROP TABLE IF EXISTS t_tmp_repartition;
+	CREATE TEMP TABLE t_tmp_repartition (tmp_rep_rac_id integer, tmp_rep_rou_name varchar(50), tmp_rep_tabs numeric(10,2)[]);
+
+	DROP TABLE IF EXISTS t_repartitions;
+	CREATE TEMP TABLE t_repartitions(rep_rac_id integer, rep_rou_name varchar(50), rep_tabs numeric(10,2)[]);
+
+	FOR result IN SELECT eve_rac_id, eve_rou_id, res_swim_time, res_step, res_splits
+			FROM t_j_result_res
+				JOIN t_e_event_eve ON res_eve_id = eve_id
+			WHERE eve_mee_id = meeting
+			ORDER BY eve_rac_id ASC, eve_rou_id ASC
+	LOOP
+		CASE
+			WHEN result.eve_rou_id BETWEEN 11 AND 14 THEN
+				v_round_name := 'Finale';
+										
+			WHEN result.eve_rou_id IN (31, 32, 39) THEN
+				v_round_name := '1/2 Finale';
+											
+			WHEN result.eve_rou_id IN (41, 42, 43, 44, 49) THEN
+				v_round_name := '1/4 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 51 AND 59 THEN
+				v_round_name := '1/8 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 60 AND 62 THEN
+				v_round_name := 'Séries';
+		END CASE;
+		v_rep_result := ps_calcul_repartition(result.res_swim_time, result.res_splits);
+		INSERT INTO t_tmp_repartition (tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs)
+		VALUES (result.eve_rac_id, v_round_name, v_rep_result);
+	END LOOP;
+
+	SELECT tmp_rep_rac_id INTO v_race FROM t_tmp_repartition ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC;
+	SELECT tmp_rep_rou_name INTO v_round FROM t_tmp_repartition ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC;
+	SELECT COUNT(*) INTO v_last_rep FROM ( 
+		SELECT tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs FROM t_tmp_repartition
+		ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC
+	) AS nb_response;
+	
+	FOR rep IN SELECT tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs FROM t_tmp_repartition
+			ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC
+	LOOP
+	    v_depth := v_depth + 1;
+	    IF rep.tmp_rep_rac_id = v_race THEN
+	        IF rep.tmp_rep_rou_name = v_round THEN
+	            v_cpt := 1;
+		    FOREACH v_perc IN ARRAY rep.tmp_rep_tabs
+		    LOOP
+		        IF v_perc_tab[v_cpt] IS NULL THEN
+			    v_perc_tab[v_cpt] := v_perc;
+		        ELSE
+			    v_perc_tab[v_cpt] := v_perc_tab[v_cpt] + v_perc;
+			END IF;
+		        v_cpt := v_cpt + 1;
+		    END LOOP;
+		    IF v_depth = v_last_rep THEN
+			v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+		    END IF;
+	        ELSE
+	            v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+		    INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
+		    v_cpt := 1;
+		    v_nb_rep := 1.00;
+		    v_round := rep.tmp_rep_rou_name;
+		    v_perc_tab := rep.tmp_rep_tabs;
+	        END IF;
+	    ELSE
+	        v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+	        INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
+	        v_cpt := 1;
+		v_nb_rep := 1.00;
+	        v_race := rep.tmp_rep_rac_id;
+	        v_round := rep.tmp_rep_rou_name;
+	        v_perc_tab := rep.tmp_rep_tabs;
+	    END IF;
+	    v_nb_rep := v_nb_rep + 1.00;
+	END LOOP;
+	IF v_depth = v_last_rep THEN
+	    INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
+	END IF;
+
+	RETURN QUERY SELECT rep_rac_id, rac_name, rep_rou_name, rep_tabs, array_length(rep_tabs, 1)
+	FROM t_repartitions JOIN t_e_race_rac ON rep_rac_id = rac_id ORDER BY rep_rac_id ASC, rep_rou_name ASC;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION QUI RENVOIE LA REPARTITION SUR UN MEETING, POUR UN NAGEUR SELECTIONNE		              	-- */
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_get_repartition_by_swimmer(integer, integer)
+
+-- DROP FUNCTION ps_get_repartition_by_swimmer(integer, integer);
+
+CREATE OR REPLACE FUNCTION ps_get_repartition_by_swimmer(IN meeting integer, IN swimmer integer)
+  RETURNS TABLE(race_id integer, race_name character varying, round_name character varying, repartitions numeric[], length integer) AS
+$BODY$
+DECLARE
+	result RECORD;
+	v_rep_result numeric(10,2)[];
+	v_round_name varchar(50);
+
+	v_cpt integer;
+	v_nb_rep numeric(10,2) := 1.00;
+	v_race integer;
+	v_round varchar(50);
+	v_perc numeric(10,2);
+	v_perc_tab numeric(10,2)[];
+	rep RECORD;
+
+	v_last_rep integer;
+	v_depth integer := 0;
+BEGIN
+	DROP TABLE IF EXISTS t_tmp_repartition;
+	CREATE TEMP TABLE t_tmp_repartition (tmp_rep_rac_id integer, tmp_rep_rou_name varchar(50), tmp_rep_tabs numeric(10,2)[]);
+
+	DROP TABLE IF EXISTS t_repartitions;
+	CREATE TEMP TABLE t_repartitions(rep_rac_id integer, rep_rou_name varchar(50), rep_tabs numeric(10,2)[]);
+
+	FOR result IN SELECT eve_rac_id, eve_rou_id, res_swim_time, res_splits
+			FROM t_j_result_res
+				JOIN t_e_event_eve ON res_eve_id = eve_id
+			WHERE eve_mee_id = meeting AND res_swi_id = swimmer
+			ORDER BY eve_rac_id ASC, eve_rou_id ASC
+	LOOP
+		CASE
+			WHEN result.eve_rou_id BETWEEN 11 AND 14 THEN
+				v_round_name := 'Finale';
+										
+			WHEN result.eve_rou_id IN (31, 32, 39) THEN
+				v_round_name := '1/2 Finale';
+											
+			WHEN result.eve_rou_id IN (41, 42, 43, 44, 49) THEN
+				v_round_name := '1/4 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 51 AND 59 THEN
+				v_round_name := '1/8 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 60 AND 62 THEN
+				v_round_name := 'Séries';
+		END CASE;
+		v_rep_result := ps_calcul_repartition(result.res_swim_time, result.res_splits);
+		INSERT INTO t_tmp_repartition (tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs)
+		VALUES (result.eve_rac_id, v_round_name, v_rep_result);
+	END LOOP;
+
+	SELECT tmp_rep_rac_id INTO v_race FROM t_tmp_repartition ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC;
+	SELECT tmp_rep_rou_name INTO v_round FROM t_tmp_repartition ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC;
+	SELECT COUNT(*) INTO v_last_rep FROM ( 
+		SELECT tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs FROM t_tmp_repartition
+		ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC
+	) AS nb_response;
+
+	FOR rep IN SELECT tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs FROM t_tmp_repartition
+			ORDER BY tmp_rep_rac_id ASC, tmp_rep_rou_name ASC
+	LOOP
+	    v_depth := v_depth + 1;
+	    IF rep.tmp_rep_rac_id = v_race THEN
+	        IF rep.tmp_rep_rou_name = v_round THEN
+	            v_cpt := 1;
+		    FOREACH v_perc IN ARRAY rep.tmp_rep_tabs
+		    LOOP
+		        IF v_perc_tab[v_cpt] IS NULL THEN
+			    v_perc_tab[v_cpt] := v_perc;
+		        ELSE
+			    v_perc_tab[v_cpt] := v_perc_tab[v_cpt] + v_perc;
+			END IF;
+		        v_cpt := v_cpt + 1;
+		    END LOOP;
+		    IF v_depth = v_last_rep THEN
+			v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+		    END IF;
+	        ELSE
+	            v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+		    INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
+		    v_cpt := 1;
+		    v_nb_rep := 1.00;
+		    v_round := rep.tmp_rep_rou_name;
+		    v_perc_tab := rep.tmp_rep_tabs;
+	        END IF;
+	    ELSE
+	        v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+	        INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
+	        v_cpt := 1;
+		v_nb_rep := 1.00;
+	        v_race := rep.tmp_rep_rac_id;
+	        v_round := rep.tmp_rep_rou_name;
+	        v_perc_tab := rep.tmp_rep_tabs;
+	    END IF;
+	    v_nb_rep := v_nb_rep + 1.00;
+	END LOOP;
+	IF v_depth = v_last_rep THEN
+	    INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
+	END IF;
+
+	RETURN QUERY SELECT rep_rac_id, rac_name, rep_rou_name, rep_tabs, array_length(rep_tabs, 1)
+	FROM t_repartitions JOIN t_e_race_rac ON rep_rac_id = rac_id ORDER BY rep_rac_id ASC, rep_rou_name ASC;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION QUI RENVOIE LA REPARTITION SUR UN MEETING, POUR TOUS NAGEURS SUR UNE COURSE SELECTIONNEE                    -- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_get_repartition_by_race(integer, integer)
+
+-- DROP FUNCTION ps_get_repartition_by_race(integer, integer);
+
+CREATE OR REPLACE FUNCTION ps_get_repartition_by_race(IN meeting integer, IN race integer)
+  RETURNS TABLE(swimmer_id integer, swimmer_firstname character varying, swimmer_lastname character varying, round_name character varying, repartitions numeric[], length integer) AS
+$BODY$
+DECLARE
+	result RECORD;
+	v_rep_result numeric(10,2)[];
+	v_round_name varchar(50);
+
+	v_cpt integer;
+	v_nb_rep numeric(10,2) := 1.00;
+	v_swimmer integer;
+	v_round varchar(50);
+	v_perc numeric(10,2);
+	v_perc_tab numeric(10,2)[];
+	rep RECORD;
+
+	v_last_rep integer;
+	v_depth integer := 0;
+BEGIN
+	DROP TABLE IF EXISTS t_tmp_repartition;
+	CREATE TEMP TABLE t_tmp_repartition (tmp_rep_swi_id integer, tmp_rep_rou_name varchar(50), tmp_rep_tabs numeric(10,2)[]);
+
+	DROP TABLE IF EXISTS t_repartitions;
+	CREATE TEMP TABLE t_repartitions(rep_swi_id integer, rep_rou_name varchar(50), rep_tabs numeric(10,2)[]);
+
+	FOR result IN SELECT res_swi_id, eve_rou_id, res_swim_time, res_splits
+			FROM t_j_result_res
+				JOIN t_e_event_eve ON res_eve_id = eve_id
+			WHERE eve_mee_id = meeting AND eve_rac_id = race
+			ORDER BY res_swi_id ASC, eve_rou_id ASC
+	LOOP
+		CASE
+			WHEN result.eve_rou_id BETWEEN 11 AND 14 THEN
+				v_round_name := 'Finale';
+										
+			WHEN result.eve_rou_id IN (31, 32, 39) THEN
+				v_round_name := '1/2 Finale';
+											
+			WHEN result.eve_rou_id IN (41, 42, 43, 44, 49) THEN
+				v_round_name := '1/4 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 51 AND 59 THEN
+				v_round_name := '1/8 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 60 AND 62 THEN
+				v_round_name := 'Séries';
+		END CASE;
+		v_rep_result := ps_calcul_repartition(result.res_swim_time, result.res_splits);
+		INSERT INTO t_tmp_repartition (tmp_rep_swi_id, tmp_rep_rou_name, tmp_rep_tabs)
+		VALUES (result.res_swi_id, v_round_name, v_rep_result);
+	END LOOP;
+
+	SELECT tmp_rep_swi_id INTO v_swimmer FROM t_tmp_repartition ORDER BY tmp_rep_swi_id ASC, tmp_rep_rou_name ASC;
+	SELECT tmp_rep_rou_name INTO v_round FROM t_tmp_repartition ORDER BY tmp_rep_swi_id ASC, tmp_rep_rou_name ASC;
+	SELECT COUNT(*) INTO v_last_rep FROM ( 
+		SELECT tmp_rep_swi_id, tmp_rep_rou_name, tmp_rep_tabs FROM t_tmp_repartition
+		ORDER BY tmp_rep_swi_id ASC, tmp_rep_rou_name ASC
+	) AS nb_response;
+
+	FOR rep IN SELECT tmp_rep_swi_id, tmp_rep_rou_name, tmp_rep_tabs FROM t_tmp_repartition
+			ORDER BY tmp_rep_swi_id ASC, tmp_rep_rou_name ASC
+	LOOP
+	    v_depth := v_depth + 1;
+	    IF rep.tmp_rep_swi_id = v_swimmer THEN
+	        IF rep.tmp_rep_rou_name = v_round THEN
+	            v_cpt := 1;
+		    FOREACH v_perc IN ARRAY rep.tmp_rep_tabs
+		    LOOP
+		        IF v_perc_tab[v_cpt] IS NULL THEN
+			    v_perc_tab[v_cpt] := v_perc;
+		        ELSE
+			    v_perc_tab[v_cpt] := v_perc_tab[v_cpt] + v_perc;
+			END IF;
+		        v_cpt := v_cpt + 1;
+		    END LOOP;
+		    IF v_depth = v_last_rep THEN
+			v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+		    END IF;
+	        ELSE
+	            v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+		    INSERT INTO t_repartitions(rep_swi_id, rep_rou_name, rep_tabs) VALUES (v_swimmer, v_round, v_perc_tab);
+		    v_cpt := 1;
+		    v_nb_rep := 1.00;
+		    v_round := rep.tmp_rep_rou_name;
+		    v_perc_tab := rep.tmp_rep_tabs;
+	        END IF;
+	    ELSE
+	        v_perc_tab := ps_divide_perc_tab(v_perc_tab, v_nb_rep);
+	        INSERT INTO t_repartitions(rep_swi_id, rep_rou_name, rep_tabs) VALUES (v_swimmer, v_round, v_perc_tab);
+	        v_cpt := 1;
+		v_nb_rep := 1.00;
+	        v_swimmer := rep.tmp_rep_swi_id;
+	        v_round := rep.tmp_rep_rou_name;
+	        v_perc_tab := rep.tmp_rep_tabs;
+	    END IF;
+	    v_nb_rep := v_nb_rep + 1.00;
+	END LOOP;
+	IF v_depth = v_last_rep THEN
+	    INSERT INTO t_repartitions(rep_swi_id, rep_rou_name, rep_tabs) VALUES (v_swimmer, v_round, v_perc_tab);
+	END IF;
+
+	RETURN QUERY SELECT rep_swi_id, swi_firstname, swi_lastname, rep_rou_name, rep_tabs, array_length(rep_tabs, 1)
+	FROM t_repartitions JOIN t_e_swimmer_swi ON rep_swi_id = swi_id ORDER BY rep_swi_id ASC, rep_rou_name ASC;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================

@@ -84,7 +84,7 @@ function XMLParser($file) {
 
 // Fonction permettant la gestion des records indépendamment des fichiers FFNEX RECORDS
 function checkRecords($mee_id) {
-    $rec_q = "SELECT check_record_for_meeting(".$mee_id.");";
+    $rec_q = "SELECT ps_check_record_for_meeting(".$mee_id.");";
     $q_res = pg_query($rec_q) or die('Échec de la requête : ' . pg_last_error());
 }
 
