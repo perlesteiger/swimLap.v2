@@ -984,3 +984,144 @@ $BODY$
   LANGUAGE 'plpgsql';
 
 -- =======================================================================================================================================================================================
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION QUI RENVOIE LES PERFORMANCES SUR UN MEETING						                      -- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+
+-- Function: ps_get_performances_by_meeting(integer)
+
+-- DROP FUNCTION ps_get_performances_by_meeting(integer);
+
+CREATE OR REPLACE FUNCTION ps_get_performances_by_meeting(IN meeting integer)
+  RETURNS TABLE(race_id integer, race_name character varying, swimmer_id integer, swimmer_name character varying, round_name character varying, performance numeric) AS
+$BODY$
+DECLARE
+	result RECORD;
+	v_round_name varchar(50);
+	v_perf_result numeric(10,2);
+	v_swi_firstname varchar(50);
+	v_swi_lastname varchar(50);
+	v_best_perf numeric(10,4);
+BEGIN
+	DROP TABLE IF EXISTS t_tmp_performance;
+	CREATE TEMP TABLE t_tmp_performance (tmp_rac_id integer, tmp_rac_name varchar(50), tmp_swi_id integer, tmp_swi_name varchar(100), tmp_rou_name varchar(50), tmp_perf numeric(10,2));
+
+	FOR result IN SELECT eve_rac_id, rac_name, res_swi_id, eve_rou_id, res_step, res_swim_time
+			FROM t_j_result_res
+				JOIN t_e_event_eve ON res_eve_id = eve_id
+				JOIN t_e_race_rac ON eve_rac_id = rac_id
+			WHERE eve_mee_id = meeting
+			ORDER BY eve_rac_id ASC, res_swi_id ASC, eve_rou_id ASC
+	LOOP
+		CASE
+			WHEN result.eve_rou_id BETWEEN 11 AND 14 THEN
+				v_round_name := 'Finale';
+										
+			WHEN result.eve_rou_id IN (31, 32, 39) THEN
+				v_round_name := '1/2 Finale';
+											
+			WHEN result.eve_rou_id IN (41, 42, 43, 44, 49) THEN
+				v_round_name := '1/4 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 51 AND 59 THEN
+				v_round_name := '1/8 Finale';
+											
+			WHEN result.eve_rou_id BETWEEN 60 AND 62 THEN
+				v_round_name := 'Séries';
+		END CASE;
+		
+		SELECT swi_firstname INTO v_swi_firstname FROM t_e_swimmer_swi WHERE swi_id = result.res_swi_id;
+		SELECT swi_lastname INTO v_swi_lastname FROM t_e_swimmer_swi WHERE swi_id = result.res_swi_id;
+
+		IF result.res_step = 25 THEN
+		    SELECT rec_swimtime_25 INTO v_best_perf FROM t_j_record_rec WHERE rec_swi_id = result.res_swi_id AND rec_rac_id = result.eve_rac_id;
+		ELSE
+		    SELECT rec_swimtime_50 INTO v_best_perf FROM t_j_record_rec WHERE rec_swi_id = result.res_swi_id AND rec_rac_id = result.eve_rac_id;
+		END IF;
+		v_perf_result := trunc(v_best_perf/result.res_swim_time, 2)*100;
+		
+		INSERT INTO t_tmp_performance (tmp_rac_id, tmp_rac_name, tmp_swi_id, tmp_swi_name, tmp_rou_name, tmp_perf)
+		VALUES (result.eve_rac_id, result.rac_name, result.res_swi_id, v_swi_firstname || ' ' || v_swi_lastname, v_round_name, v_perf_result);
+	END LOOP;
+
+	RETURN QUERY SELECT tmp_rac_id, tmp_rac_name, tmp_swi_id, tmp_swi_name, tmp_rou_name, tmp_perf
+	FROM t_tmp_performance ORDER BY tmp_rac_id ASC, tmp_swi_id ASC;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
+
+-- =======================================================================================================================================================================================
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+/* --                    FONCTION QUI RENVOIE LES MOYENNES DES PERFORMANCES						                      -- */
+/* --------------------------------------------------------------------------------------------------------------------------------------------- */
+-- Function: ps_get_moy_performances(integer)
+
+-- DROP FUNCTION ps_get_moy_performances(integer);
+
+CREATE OR REPLACE FUNCTION ps_get_moy_performances(IN meeting integer)
+  RETURNS TABLE(race integer, swimmer integer, moyenne_performance numeric) AS
+$BODY$
+DECLARE
+	result RECORD;
+	v_race integer;
+	v_swimmer integer;
+	v_nb_perf numeric(10,2) := 1.00;
+	v_moy_perf numeric(10,2);
+
+	v_last_perf integer;
+	v_depth integer := 0;
+BEGIN
+	DROP TABLE IF EXISTS t_tmp_moy_perf;
+	CREATE TEMP TABLE t_tmp_moy_perf (tmp_rac_id integer, tmp_swi_id integer, tmp_moy_perf numeric(10,2));
+
+	SELECT race_id INTO v_race FROM ps_get_performances_by_meeting(meeting) ORDER BY race_id ASC, swimmer_id ASC;
+	SELECT swimmer_id INTO v_swimmer FROM ps_get_performances_by_meeting(meeting) ORDER BY race_id ASC, swimmer_id ASC;
+	SELECT COUNT(*) INTO v_last_perf FROM ( 
+		SELECT race_id, swimmer_id, performance FROM ps_get_performances_by_meeting(meeting)
+		ORDER BY race_id ASC, swimmer_id ASC
+	) AS nb_response;
+	
+	FOR result IN SELECT race_id, swimmer_id, performance
+			FROM ps_get_performances_by_meeting(meeting)
+			ORDER BY race_id ASC, swimmer_id ASC
+	LOOP
+	    v_depth := v_depth + 1;
+	    IF result.race_id = v_race THEN
+	        IF result.swimmer_id = v_swimmer THEN
+	            IF v_moy_perf IS NULL THEN
+	                v_moy_perf := result.performance;
+	            ELSE
+	                v_moy_perf := v_moy_perf + result.performance;
+	            END IF;
+	            IF v_depth = v_last_perf THEN
+	                v_moy_perf := v_moy_perf/(v_nb_perf - 1);
+		    END IF;
+	        ELSE
+	            v_moy_perf := v_moy_perf/(v_nb_perf - 1);
+	            INSERT INTO t_tmp_moy_perf (tmp_rac_id, tmp_swi_id, tmp_moy_perf)
+	            VALUES (result.race_id, result.swimmer_id, v_moy_perf);
+		    v_nb_perf := 1.00;
+		    v_swimmer := result.swimmer_id;
+		    v_moy_perf := result.performance;
+	        END IF;
+	    ELSE
+	        v_moy_perf := v_moy_perf/(v_nb_perf - 1);
+	        INSERT INTO t_tmp_moy_perf (tmp_rac_id, tmp_swi_id, tmp_moy_perf)
+	        VALUES (result.race_id, result.swimmer_id, v_moy_perf);
+	        v_nb_perf := 1.00;
+	        v_race := result.race_id;
+	        v_swimmer := result.swimmer_id;
+	        v_moy_perf := result.performance;
+	    END IF;
+	    v_nb_perf := v_nb_perf + 1.00;
+	END LOOP;
+	IF v_depth = v_last_perf THEN
+	    INSERT INTO t_tmp_moy_perf (tmp_rac_id, tmp_swi_id, tmp_moy_perf)
+	    VALUES (result.race_id, result.swimmer_id, v_moy_perf);
+	END IF;
+	
+	RETURN QUERY SELECT tmp_rac_id, tmp_swi_id, tmp_moy_perf
+	FROM t_tmp_moy_perf ORDER BY tmp_rac_id ASC, tmp_swi_id ASC;
+END;
+$BODY$
+  LANGUAGE 'plpgsql';
