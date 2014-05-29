@@ -671,7 +671,7 @@ BEGIN
 	DROP TABLE IF EXISTS t_repartitions;
 	CREATE TEMP TABLE t_repartitions(rep_rac_id integer, rep_rou_name varchar(50), rep_tabs numeric(10,2)[]);
 
-	FOR result IN SELECT eve_rac_id, eve_rou_id, res_swim_time, res_step, res_splits
+	FOR result IN SELECT eve_rac_id, eve_rou_id, res_swim_time, res_splits
 			FROM t_j_result_res
 				JOIN t_e_event_eve ON res_eve_id = eve_id
 			WHERE eve_mee_id = meeting
