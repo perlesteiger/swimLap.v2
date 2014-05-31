@@ -26,11 +26,11 @@ switch ($type) {
 
             while ($line = pg_fetch_object($result)) {
                 //correspondance tableau postgres/tableau php
-                $repart= substr ( $line->repartitions, 1 , strlen($line->repartitions)-1 );
+                $repart= substr ( $line->repartitions, 1 , strlen($line->repartitions)-2 );
                 $percent= explode(',', $repart);
                 //enregistrer chaque temps
                 for ($i = 0; $i < $line->length; $i++) {
-                    $tab[] = array('round'=>$line->round_name, 'percent'=>$percent[$i], 'swimmer'=>$line->swimmer_firstname.' '.$line->swimmer_lastname, 'race'=>'', 'length'=>$line->length);
+                    $tab[] = array('round'=>$line->round_name, 'percent'=>$percent[$i], 'swimmer'=>$line->swimmer_firstname.' '.$line->swimmer_lastname, 'race'=>'');
                 }
             }    
         //recherche pour un nageur
@@ -39,13 +39,12 @@ switch ($type) {
             $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
 
             while ($line = pg_fetch_object($result)) {
-                print_r($line);
                 //correspondance tableau postgres/tableau php
-                $repart= substr ( $line->repartitions, 1 , strlen($line->repartitions)-1 );
+                $repart= substr ( $line->repartitions, 1 , strlen($line->repartitions)-2 );
                 $percent= explode(',', $repart);
                 //enregistrer chaque temps
                 for ($i = 0; $i < $line->length; $i++) {
-                    $tab[] = array('round'=>$line->round_name, 'percent'=>$percent[$i], 'swimmer'=>'', 'race'=>$line->race_name, 'length'=>$line->length, 'race_id'=>$line->race_id);
+                    $tab[] = array('round'=>$line->round_name, 'percent'=>$percent[$i], 'swimmer'=>'', 'race'=>$line->race_name, 'race_id'=>$line->race_id);
                 }
             }  
         //recherche pour le premier affichage
@@ -54,16 +53,13 @@ switch ($type) {
             $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
             while ($line = pg_fetch_object($result)) {
                 //correspondance tableau postgres/tableau php
-                $repart= substr ( $line->repartitions, 1 , strlen($line->repartitions)-1 );
+                $repart= substr ( $line->repartitions, 1 , strlen($line->repartitions)-2 );
                 $percent= explode(',', $repart);
                 //enregistrer chaque temps
                 for ($i = 0; $i < $line->length; $i++) {
-                    $tab[] = array('round'=>$line->round_name, 'percent'=>$percent[$i], 'swimmer'=>'', 'race'=>$line->race_name, 'length'=>$line->length, 'race_id'=>$line->race_id);
+                    $tab[] = array('round'=>$line->round_name, 'percent'=>$percent[$i], 'swimmer'=>'', 'race'=>$line->race_name, 'race_id'=>$line->race_id);
                 }
             }
-
-            // Ferme la connexion
-            pg_close($dbconn);  
         }
         break;
 
@@ -100,46 +96,134 @@ switch ($type) {
         
     case 'planification':
         $tab=array();
+        
+        //recuperation des competitions
+        $meetings = recoverCompetition();
+        
+        //ouverture connexion bdd
+        $dbconn = connect_bdd();
+        
+        //recherche pour un type de course
         if (!empty($id_race) && empty($id_swimmer)) {
+            
+            //pour chaque meeting
+            foreach ($meetings as $meet) {
+                $meet = explode('|', $meet);
+            
+                $query = 'SELECT performance FROM ps_get_performances_by_meeting('.$meet[4].') WHERE race_id ='.$id_race.'';
+                $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
 
-            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
-            $tab[] = array('competition'=>'Rencontre Poussins N°1', 'percent'=>'82');
-            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
-            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
-         
+                if(!empty($result)) {
+                    //nbr de perf//somme des perf
+                    $tmp =0; $som=0;
+                    while ($line = pg_fetch_object($result)) {
+                        $som = $som + $line->performance;      
+                        $tmp++;
+                    }
+
+                    //verification que la competition a des resultats
+                    if ($tmp !== 0) {
+                        //calcul du pourcentage
+                        $percent = round($som/$tmp, 2);
+
+                        //remplissage resultat
+                        $tab[] = array('competition'=>$meet[0], 'percent'=>$percent);
+                    }
+                }
+            }
+        
+        //recherche pour un nageur toute course
         } else if (!empty($id_swimmer) && empty($id_race)) {
 
-            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
-            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
-            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
+            //pour chaque meeting
+            foreach ($meetings as $meet) {
+                $meet = explode('|', $meet);
             
+                $query = 'SELECT performance FROM ps_get_performances_by_meeting('.$meet[4].') WHERE swimmer_id ='.$id_swimmer.'';
+                $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+
+                    //nbr de perf//somme des perf
+                    $tmp =0; $som=0;
+                    while ($line = pg_fetch_object($result)) {
+                        $som = $som + $line->performance;      
+                        $tmp++;
+                    }
+
+                    //verification que la competition a des resultats
+                    if ($tmp !== 0) {
+                        //calcul du pourcentage
+                        $percent = round($som/$tmp, 2);
+
+                        //remplissage resultat
+                        $tab[] = array('competition'=>$meet[0], 'percent'=>$percent);
+                    }
+            }
+        
+        //recherche pour premier affichage
         } else if (empty($id_race) && empty($id_swimmer)) {
 
-            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
-            $tab[] = array('competition'=>'Rencontre Poussins N°1', 'percent'=>'82');
-            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
-            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
-            $tab[] = array('competition'=>'Meeting Benjamins N°2', 'percent'=>'88');
-            $tab[] = array('competition'=>'Rencontre Poussins N°5', 'percent'=>'62');
-            
+            //pour chaque meeting
+            foreach ($meetings as $meet) {
+                $meet = explode('|', $meet);
+
+                $query = 'SELECT performance FROM ps_get_performances_by_meeting('.$meet[4].')';
+                $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+
+                if(!empty($result)) {
+                    //nbr de perf//somme des perf
+                    $tmp =0; $som=0;
+                    while ($line = pg_fetch_object($result)) {
+                        $som = $som + $line->performance;      
+                        $tmp++;
+                    }
+
+                    //verification que la competition a des resultats
+                    if ($tmp !== 0) {
+                        //calcul du pourcentage
+                        $percent = round($som/$tmp, 2);
+
+                        //remplissage resultat
+                        $tab[] = array('competition'=>$meet[0], 'percent'=>$percent);
+                    }
+                }
+            }
+        
+        //recherche pour un nageur et une course
         } else if (!empty($id_race) && !empty($id_swimmer)) {
 
-            $tab[] = array('competition'=>'Meeting Régional N°1 Minimes et plus', 'percent'=>'77');
-            $tab[] = array('competition'=>'Rencontre Poussins N°1', 'percent'=>'82');
-            $tab[] = array('competition'=>'Championnat Régional Interclubs TC', 'percent'=>'94');
-            $tab[] = array('competition'=>'4e Etape de la Coupe du monde 2013', 'percent'=>'79');
-            $tab[] = array('competition'=>'Meeting Benjamins N°2', 'percent'=>'99');
-            $tab[] = array('competition'=>'Rencontre Poussins N°5', 'percent'=>'63');
-            $tab[] = array('competition'=>'Championnats d Europe en petit bassin', 'percent'=>'68');
-            $tab[] = array('competition'=>'16e Meeting du Luxembourg', 'percent'=>'81');
+            //pour chaque meeting
+            foreach ($meetings as $meet) {
+                $meet = explode('|', $meet);
+            
+                $query = 'SELECT performance FROM ps_get_performances_by_meeting('.$meet[4].') WHERE swimmer_id ='.$id_swimmer.' AND race_id ='.$id_race.'';
+                $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+
+                if(!empty($result)) {
+                    //nbr de perf//somme des perf
+                    $tmp =0; $som=0;
+                    while ($line = pg_fetch_object($result)) {
+                        $som = $som + $line->performance;      
+                        $tmp++;
+                    }
+
+                    //verification que la competition a des resultats
+                    if ($tmp !== 0) {
+                        //calcul du pourcentage
+                        $percent = round($som/$tmp, 2);
+
+                        //remplissage resultat
+                        $tab[] = array('competition'=>$meet[0], 'percent'=>$percent);
+                    }
+                }
+            }
             
         }
         
         break;
-
-    default:
-        break;
 }
+
+// Ferme la connexion
+pg_close($dbconn);  
 
 echo json_encode($tab);
 ?>

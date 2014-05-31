@@ -217,36 +217,52 @@ function recoverRace() {
     return $list_race;
 }
 
-//recuperer les saisons
-//function recoverSplits($id_swimmer, $id_competition, $type_course, $id_season) {
-//    
-//    $dbconn = connect_bdd();
-//    
-//    // Exécution de la requête SQL
-//    $query = 'SELECT res.res_splits, res.res_swim_time, swi.swi_firstname, swi.swi_lastname, mee.mee_name, rou.rou_name 
-//              FROM t_j_result_res res
-//                JOIN t_e_swimmer_swi swi ON res.res_swi_id = swi.swi_id
-//                JOIN t_e_event_eve eve ON res.res_eve_id = eve.eve_id
-//                JOIN t_e_race_rac rac ON eve.eve_rac_id = rac.rac_id
-//                JOIN t_e_meeting_mee mee ON eve.eve_mee_id = mee.mee_id
-//                JOIN t_e_round_rou rou ON eve.eve_rou_id = rou.rou_id
-//              WHERE mee_sea_id = "'.$id_season.'"';
-//    if (!isset($id_competition))
-//             $query .= ' AND eve.eve_mee_id = "'.$id_competition.'"';
-//    if (!isset($id_swimmer))
-//             $query .= ' AND res.res_swi_id = "'.$id_swimmer.'"';
-//    if ($type_course != "toutes")
-//             $query .= ' AND rac.rac_style = "'.$type_course.'"';
-//                 
-//    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
-//    
-//    while ($line = pg_fetch_object($result)) {
-//        $list_splits[] = array('nageur'=>$line->swi_lastname." ".$line->swi_firstname, 'rencontre'=>$line->mee_name, 'temps'=>$line->res_splits, 'total'=>$line->res_swim_time, 'round'=>$line->rou_name); 
-//    }
-//    
-//    // Ferme la connexion
-//    pg_close($dbconn);  
-//    
-//    return $list_splits;
-//}
+//recuperer les nageurs pour un meeting
+function recoverSwimmerMeeting($id_meeting) {
+    
+    $dbconn = connect_bdd();
+    
+    // Exécution de la requête SQL
+    $query = 'SELECT DISTINCT swi.swi_firstname, swi.swi_lastname, swi.swi_id 
+                FROM t_e_meeting_mee mee
+                    JOIN t_e_event_eve eve ON mee.mee_id = eve.eve_mee_id
+                    JOIN t_j_result_res res ON eve.eve_id = res.res_eve_id
+                    JOIN t_e_swimmer_swi swi ON res.res_swi_id = swi.swi_id
+                WHERE mee.mee_id = '.$id_meeting.'';
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    $list_swimmer = array();
+    
+    while ($line = pg_fetch_object($result)) {
+        $list_swimmer[]= array('swimmer'=>$line->swi_lastname.' '.$line->swi_firstname, 'swimmer_id'=>$line->swi_id);
+    }
+    
+    // Ferme la connexion
+    pg_close($dbconn);  
+    
+    return $list_swimmer;
+}
+
+//recuperer les races pour un meeting
+function recoverRaceMeeting($id_meeting) {
+    
+    $dbconn = connect_bdd();
+    
+    // Exécution de la requête SQL
+    $query = 'SELECT DISTINCT rac.rac_name, rac.rac_id 
+                FROM t_e_meeting_mee mee
+                    JOIN t_e_event_eve eve ON mee.mee_id = eve.eve_mee_id
+                    JOIN t_e_race_rac rac ON eve.eve_rac_id = rac.rac_id
+                WHERE mee.mee_id = '.$id_meeting.'';
+    $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+    
+    while ($line = pg_fetch_object($result)) {
+        $list_race[]= array('race_id'=>$line->rac_id, 'race'=>$line->rac_name); 
+    }
+    
+    // Ferme la connexion
+    pg_close($dbconn);  
+    
+    return $list_race;
+}
 ?>

@@ -2,6 +2,61 @@ $(document).ready ( function () {
    
     $("header span").find(".active").removeClass("active");
     
+    //si changement de competition, recuperer nageur et race approprie
+    $('.search_competition').change ( function() {
+       var id = $(this).val();
+
+       //recuperation swimmer
+       $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { id_meeting: id, type: 'swimmer' }, function(data) {
+           //Si le php renvoie quelque chose
+           var swimmers=$.parseJSON(data);
+           
+           var i=0;           
+           $('.search_swimmer').html('');
+           
+           //option tous
+           var option = $('<option/>');
+            option.val('');
+            option.text('Tous');
+            option.appendTo('.search_swimmer');
+            
+           //option les nageurs
+           while (i < swimmers.length) {
+               var option = $('<option/>');
+               option.val(swimmers[i].swimmer_id);
+               option.text(swimmers[i].swimmer);
+               option.appendTo('.search_swimmer');
+               
+               i++;
+           }
+       });
+       
+       //recuperation race
+       $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { id_meeting: id, type: 'race' }, function(data) {
+           //Si le php renvoie quelque chose
+           var races=$.parseJSON(data);
+           
+           var i=0;           
+           $('.search_race').html('');
+           
+           //option tous
+           var option = $('<option/>');
+            option.val('');
+            option.text('Toutes');
+            option.appendTo('.search_race');
+            
+           //option les nageurs
+           while (i < races.length) {
+               var option = $('<option/>');
+               option.val(races[i].race_id);
+               option.text(races[i].race);
+               option.appendTo('.search_race');
+               
+               i++;
+           }
+       });
+    });
+    
     //changer le contenu des parametres
     $("#sous-menu-setting li").click( function() {
        var id = $(this).attr('class');
@@ -27,12 +82,15 @@ $(document).ready ( function () {
        
        switch (id) {
             case 'repartition':
+                $('.search_competition').removeAttr('disabled');
                 createRepartition(swimmer,meeting,race,season);
                 break;
             case 'performance':
+                $('.search_competition').removeAttr('disabled');
                 createPerformance(swimmer,meeting,race,season);
                 break;
             case 'planning':
+                $('.search_competition').prop('disabled', 'disabled');
                 createPlanification(swimmer,race,season);
                 break;
        }
@@ -149,6 +207,7 @@ function createRepartition(nageur,compet,course,saison) {
         url: '../model/fonctions_request_stat.php', //On va chercher le fichier php
         data: "style=repartition&nageur="+nageur+"&compet="+compet+"&course="+course+"&saison="+saison, //On transmet les deux données pour l'exécution de la requête
         success: function(data) { 
+            
             //Si le php renvoie quelque chose
             var tab=$.parseJSON(data);
 
