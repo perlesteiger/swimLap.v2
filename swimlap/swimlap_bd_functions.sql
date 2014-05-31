@@ -673,9 +673,10 @@ BEGIN
 	DROP TABLE IF EXISTS t_repartitions;
 	CREATE TEMP TABLE t_repartitions(rep_rac_id integer, rep_rou_name varchar(50), rep_tabs numeric(10,2)[]);
 
-	FOR result IN SELECT eve_rac_id, eve_rou_id, res_swim_time, res_splits
+	FOR result IN SELECT eve_rac_id, eve_rou_id, rac_gender, res_swim_time, res_splits
 			FROM t_j_result_res
 				JOIN t_e_event_eve ON res_eve_id = eve_id
+				JOIN t_e_race_rac ON eve_rac_id = rac_id
 			WHERE eve_mee_id = meeting
 			ORDER BY eve_rac_id ASC, eve_rou_id ASC
 	LOOP
@@ -695,6 +696,11 @@ BEGIN
 			WHEN result.eve_rou_id BETWEEN 60 AND 62 THEN
 				v_round_name := 'Séries';
 		END CASE;
+		IF result.rac_gender = 'F' OR result.rac_gender = 'M' THEN
+			v_round_name := v_round_name || ' ' || result.rac_gender;
+		ELSE
+			v_round_name := v_round_name || ' Mixte';
+		END IF;
 		v_rep_result := ps_calcul_repartition(result.res_swim_time, result.res_splits);
 		INSERT INTO t_tmp_repartition (tmp_rep_rac_id, tmp_rep_rou_name, tmp_rep_tabs)
 		VALUES (result.eve_rac_id, v_round_name, v_rep_result);
@@ -749,8 +755,10 @@ BEGIN
 	    INSERT INTO t_repartitions(rep_rac_id, rep_rou_name, rep_tabs) VALUES (v_race, v_round, v_perc_tab);
 	END IF;
 
-	RETURN QUERY SELECT rep_rac_id, rac_name, rep_rou_name, rep_tabs, array_length(rep_tabs, 1)
-	FROM t_repartitions JOIN t_e_race_rac ON rep_rac_id = rac_id ORDER BY rep_rac_id ASC, rep_rou_name ASC;
+	RETURN QUERY
+		SELECT rep_rac_id, rac_name, rep_rou_name, rep_tabs, array_length(rep_tabs, 1)
+		FROM t_repartitions JOIN t_e_race_rac ON rep_rac_id = rac_id
+		ORDER BY rep_rac_id ASC, rep_rou_name ASC;
 END;
 $BODY$
   LANGUAGE 'plpgsql';
