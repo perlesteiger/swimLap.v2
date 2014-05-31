@@ -149,7 +149,7 @@ function recoverCompetition() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-    $query = 'SELECT mee_name, mee_city, mee_start_date, mee_end_date, mee_id FROM t_e_meeting_mee';
+    $query = 'SELECT mee_name, mee_city, mee_start_date, mee_end_date, mee_id FROM t_e_meeting_mee ORDER BY mee_start_date DESC';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
     
     $list_competition = array();
@@ -185,7 +185,7 @@ function recoverSeason() {
     $dbconn = connect_bdd();
     
     // Exécution de la requête SQL
-    $query = 'SELECT sea_name, sea_id FROM t_e_season_sea';
+    $query = 'SELECT sea_name, sea_id FROM t_e_season_sea ORDER BY sea_start_date DESC';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
     
     while ($line = pg_fetch_object($result)) {

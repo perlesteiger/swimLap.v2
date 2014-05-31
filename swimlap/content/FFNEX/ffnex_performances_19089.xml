@@ -1,0 +1,839 @@
+<?xml version="1.0"?>
+<FFNEX version="1.0.15" type="performance">
+	<ORIGIN name="FFN" version="1.0">
+		<CONTACT name="Olivier DUPAS" zip="93508" address="14, rue Scandicci" city="Pantin Cedex" email="ffn@ffnatation.fr" internet="http://www.ffnatation.fr" phone="+33 (0)1.41.83.87.70" fax="+33 (0)1.41.83.87.69"/>
+	</ORIGIN>
+	<MEETS>
+		<MEET id="19089" name="Rencontre Poussins N&#xB0;1" city="CARROS" startdate="2013-10-06" stopdate="2013-10-06" nation="FRA" typeid="5" disciplineid="1">
+			<POINTTABLE name="Cotation FFN" version="2004"/>
+			<POOL size="25"/>
+			<CLUBS>
+				<CLUB id="1062" name="CARROS NATATION" code="090064092" nation="FRA" typeid="3"/>
+				<CLUB id="1209" name="OLYMPIC NICE NATATION" code="090064358" nation="FRA" typeid="3"/>
+				<CLUB id="178" name="AS MONACO NATATION" code="090060347" nation="FRA" typeid="3"/>
+			</CLUBS>
+			<SWIMMERS>
+				<SWIMMER id="1430185" firstname="L&#xE9;ana" lastname="AICHOUR" gender="F" birthdate="2004-01-30" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1566742" firstname="&#xC9;l&#xE9;a" lastname="AQUILINA" gender="F" birthdate="2003-06-20" nation="MON" clubid="178"/>
+				<SWIMMER id="1338465" firstname="Justine" lastname="ARBERT" gender="F" birthdate="2003-12-16" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1637665" firstname="Ugo" lastname="ASTRI" gender="M" birthdate="2003-11-03" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1470498" firstname="Theo" lastname="BARSOTELLI" gender="M" birthdate="2003-11-24" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1733008" firstname="Cl&#xE9;ment" lastname="BAUDIN CHASSIGNEUX" gender="M" birthdate="2004-08-13" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638030" firstname="Bastien" lastname="BELLON" gender="M" birthdate="2004-03-11" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1338636" firstname="Yona" lastname="BENMERGUI" gender="F" birthdate="2003-10-18" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1564255" firstname="Tifeen" lastname="BERTAUX" gender="F" birthdate="2003-12-24" nation="FRA" clubid="178"/>
+				<SWIMMER id="1678627" firstname="Bryan" lastname="BLANCHARD" gender="M" birthdate="2003-07-16" nation="FRA" clubid="178"/>
+				<SWIMMER id="1563978" firstname="Thylane" lastname="BOIME" gender="F" birthdate="2003-10-31" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1417976" firstname="Victoria" lastname="BONARDO" gender="F" birthdate="2003-04-08" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1338650" firstname="Pablo" lastname="BONNOT" gender="M" birthdate="2003-04-12" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638059" firstname="Kevin" lastname="CERANA" gender="M" birthdate="2005-01-06" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1638060" firstname="Chiara" lastname="CHALINE" gender="F" birthdate="2004-11-20" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1638067" firstname="Camille" lastname="CIRASA" gender="F" birthdate="2003-02-22" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1428421" firstname="Maxence" lastname="CLAUDEL" gender="M" birthdate="2004-09-11" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638068" firstname="Julien" lastname="CONTESSO" gender="M" birthdate="2006-11-07" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1637694" firstname="Lilou" lastname="COURTEVAL" gender="F" birthdate="2004-04-20" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1638071" firstname="Lola" lastname="COURTEVAL" gender="F" birthdate="2005-09-04" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1336088" firstname="Marie" lastname="CRESCENZO" gender="F" birthdate="2003-04-25" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1193792" firstname="Margot" lastname="CULOT" gender="F" birthdate="2005-02-04" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1605650" firstname="Manon" lastname="CUVEREAUX" gender="F" birthdate="2003-01-23" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1430247" firstname="Pablo" lastname="DE NARDI" gender="M" birthdate="2004-03-29" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1228702" firstname="Matt&#xE9;o" lastname="DELEMBERT" gender="M" birthdate="2003-08-30" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1230911" firstname="Gueorgy" lastname="DEMENTYEV" gender="M" birthdate="2003-09-01" nation="RUS" clubid="1209"/>
+				<SWIMMER id="1428425" firstname="Ethan" lastname="DEPAY" gender="M" birthdate="2003-12-15" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638103" firstname="Mathis" lastname="DESMET" gender="M" birthdate="2005-11-14" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1637697" firstname="Souad" lastname="DJA-YAHIA" gender="F" birthdate="2003-07-28" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1544915" firstname="Illeane" lastname="DONN&#xC9;" gender="F" birthdate="2003-08-30" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1264786" firstname="Lea" lastname="DORGIGNE" gender="F" birthdate="2003-09-20" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1689113" firstname="Giovanna" lastname="FALLARA" gender="F" birthdate="2004-02-29" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1564261" firstname="Lisa" lastname="FLORI" gender="F" birthdate="2003-02-25" nation="FRA" clubid="178"/>
+				<SWIMMER id="1545381" firstname="In&#xE8;s" lastname="FORN&#xC9;RIS" gender="F" birthdate="2003-11-11" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1672298" firstname="Maxime" lastname="GIACOLETTO" gender="M" birthdate="2003-03-12" nation="FRA" clubid="178"/>
+				<SWIMMER id="1544454" firstname="Ana&#xEF;s" lastname="HADJ-ALI" gender="F" birthdate="2004-07-12" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638027" firstname="Andrew" lastname="HARRIS" gender="M" birthdate="2003-01-07" nation="GBR" clubid="1209"/>
+				<SWIMMER id="1638444" firstname="Oriane" lastname="HAY LEMETAIS" gender="F" birthdate="2005-10-15" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1605687" firstname="Jesse" lastname="JANIN" gender="M" birthdate="2004-01-03" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1548180" firstname="Zao" lastname="KLINKA" gender="M" birthdate="2003-06-11" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638450" firstname="Lily" lastname="KNECHT" gender="F" birthdate="2005-01-28" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1280550" firstname="Marie" lastname="KOZMA" gender="F" birthdate="2003-03-25" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1430295" firstname="Nathan" lastname="LACROIX" gender="M" birthdate="2003-12-15" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1693569" firstname="Th&#xE9;o" lastname="LE MASSON" gender="M" birthdate="2004-02-13" nation="FRA" clubid="178"/>
+				<SWIMMER id="1581943" firstname="Julianne" lastname="LEPRA" gender="F" birthdate="2003-04-12" nation="FRA" clubid="178"/>
+				<SWIMMER id="1473638" firstname="Mila" lastname="LUCCHESE" gender="F" birthdate="2003-04-29" nation="FRA" clubid="178"/>
+				<SWIMMER id="1452906" firstname="Celeste" lastname="LUHERNE" gender="F" birthdate="2004-11-23" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1678643" firstname="Sarah" lastname="MIYAMATSU" gender="F" birthdate="2004-02-12" nation="JPN" clubid="178"/>
+				<SWIMMER id="1638844" firstname="Lucas" lastname="MONTIES" gender="M" birthdate="2006-03-15" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1607602" firstname="Julien" lastname="MORAIS-SANTOS" gender="M" birthdate="2003-07-06" nation="FRA" clubid="178"/>
+				<SWIMMER id="1637681" firstname="Ethan" lastname="MOREAU" gender="M" birthdate="2004-04-16" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1339295" firstname="Imen" lastname="MOUSSAOUI" gender="F" birthdate="2003-10-10" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1128921" firstname="Enzo" lastname="NARDON" gender="M" birthdate="2003-01-06" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638847" firstname="Alycia" lastname="NEGRO" gender="F" birthdate="2004-02-07" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1451228" firstname="Shirel" lastname="NIDDAM" gender="F" birthdate="2003-05-25" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1564275" firstname="Lucas" lastname="NUNES MANJATE" gender="M" birthdate="2003-03-19" nation="POR" clubid="178"/>
+				<SWIMMER id="1229679" firstname="Sandro" lastname="PANNUTI" gender="M" birthdate="2004-02-13" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1728611" firstname="Maxym" lastname="PASTOR MOLIMARD" gender="M" birthdate="2004-08-17" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1637684" firstname="Julie" lastname="PELISSIER" gender="F" birthdate="2003-12-07" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1541404" firstname="Colomba" lastname="PEREZ" gender="F" birthdate="2003-04-20" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1339310" firstname="Germain" lastname="PESARESI" gender="M" birthdate="2003-04-18" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1672335" firstname="Chlo&#xE9;" lastname="PHILIBERT" gender="F" birthdate="2003-10-06" nation="FRA" clubid="178"/>
+				<SWIMMER id="1637711" firstname="Ethan" lastname="PLISSON" gender="M" birthdate="2004-06-09" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1229367" firstname="Antoine" lastname="POGGI" gender="M" birthdate="2003-01-09" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1729474" firstname="Eleana" lastname="POILPR&#xC9;" gender="F" birthdate="2004-06-04" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1671367" firstname="Valentin" lastname="POIR&#xC9;E" gender="M" birthdate="2003-03-12" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1564277" firstname="Emilien" lastname="PUYO" gender="M" birthdate="2003-01-22" nation="MON" clubid="178"/>
+				<SWIMMER id="1418737" firstname="Flavio" lastname="RE" gender="M" birthdate="2003-12-31" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1542865" firstname="Dayanna" lastname="REMY" gender="F" birthdate="2004-04-03" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1653121" firstname="In&#xE9;s" lastname="SAUNIER" gender="F" birthdate="2004-08-08" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638908" firstname="Anna" lastname="SEVRIN" gender="F" birthdate="2005-09-22" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1638909" firstname="Roxane" lastname="SIMEONI" gender="F" birthdate="2004-01-21" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1564281" firstname="Zak" lastname="TARAZI" gender="M" birthdate="2003-06-12" nation="GBR" clubid="178"/>
+				<SWIMMER id="1638604" firstname="Theo" lastname="VALLOSIO" gender="M" birthdate="2003-05-25" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1689188" firstname="Matt" lastname="VANDENBERGHE" gender="M" birthdate="2003-11-06" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1638918" firstname="Lea" lastname="VENIANT" gender="F" birthdate="2004-04-15" nation="FRA" clubid="1062"/>
+				<SWIMMER id="1564283" firstname="Cl&#xE9;a" lastname="VIORA" gender="F" birthdate="2003-06-08" nation="MON" clubid="178"/>
+				<SWIMMER id="1635535" firstname="Anthony" lastname="WATCHI" gender="M" birthdate="2003-08-23" nation="FRA" clubid="1209"/>
+				<SWIMMER id="1717100" firstname="Anastassia" lastname="WESTENRA" gender="F" birthdate="2003-10-31" nation="BEL" clubid="178"/>
+			</SWIMMERS>
+			<AGEGROUPS>
+				<AGEGROUP id="0" name="Toutes categories" agemin="0" agemax="999"/>
+			</AGEGROUPS>
+			<RESULTS>
+				<RESULT id="9137334" heat="01" lane="1" agegroupid="0" swimtime="3.3032" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="87" roundid="60" place="16" points="134" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1638059" clubid="1062"/>
+							<RELAYPOSITION number="2" swimmerid="1689113" clubid="1062"/>
+							<RELAYPOSITION number="3" swimmerid="1638450" clubid="1062"/>
+							<RELAYPOSITION number="4" swimmerid="1193792" clubid="1062"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4681" distance="50"/>
+						<SPLIT swimtime="1.4177" distance="100"/>
+						<SPLIT swimtime="2.3514" distance="150"/>
+						<SPLIT swimtime="3.3032" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137343" heat="01" lane="2" agegroupid="0" swimtime="3.0615" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="12" points="283" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1428421" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1338636" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1280550" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1635535" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4415" distance="50"/>
+						<SPLIT swimtime="1.3067" distance="100"/>
+						<SPLIT swimtime="2.2127" distance="150"/>
+						<SPLIT swimtime="3.0615" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137333" heat="01" lane="3" agegroupid="0" swimtime="3.4515" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="87" roundid="60" place="17" points="70" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1637681" clubid="1062"/>
+							<RELAYPOSITION number="2" swimmerid="1638918" clubid="1062"/>
+							<RELAYPOSITION number="3" swimmerid="1638060" clubid="1062"/>
+							<RELAYPOSITION number="4" swimmerid="1638444" clubid="1062"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4533" distance="50"/>
+						<SPLIT swimtime="1.3762" distance="100"/>
+						<SPLIT swimtime="2.3760" distance="150"/>
+						<SPLIT swimtime="3.4515" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137331" heat="02" lane="1" agegroupid="0" swimtime="3.1244" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="87" roundid="60" place="15" points="239" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1638067" clubid="1062"/>
+							<RELAYPOSITION number="2" swimmerid="1638909" clubid="1062"/>
+							<RELAYPOSITION number="3" swimmerid="1637711" clubid="1062"/>
+							<RELAYPOSITION number="4" swimmerid="1638030" clubid="1062"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4752" distance="50"/>
+						<SPLIT swimtime="1.3896" distance="100"/>
+						<SPLIT swimtime="2.2811" distance="150"/>
+						<SPLIT swimtime="3.1244" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137342" heat="02" lane="2" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="87" roundid="60" place="999" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1229367" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1336088" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+				</RESULT>
+				<RESULT id="9137332" heat="02" lane="3" agegroupid="0" swimtime="3.1174" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="87" roundid="60" place="14" points="243" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1638103" clubid="1062"/>
+							<RELAYPOSITION number="2" swimmerid="1638071" clubid="1062"/>
+							<RELAYPOSITION number="3" swimmerid="1638908" clubid="1062"/>
+							<RELAYPOSITION number="4" swimmerid="1638847" clubid="1062"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4352" distance="50"/>
+						<SPLIT swimtime="1.3427" distance="100"/>
+						<SPLIT swimtime="2.2637" distance="150"/>
+						<SPLIT swimtime="3.1174" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137329" heat="03" lane="1" agegroupid="0" swimtime="2.4819" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="87" roundid="60" place="7" points="428" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1678627" clubid="178"/>
+							<RELAYPOSITION number="2" swimmerid="1566742" clubid="178"/>
+							<RELAYPOSITION number="3" swimmerid="1473638" clubid="178"/>
+							<RELAYPOSITION number="4" swimmerid="1672335" clubid="178"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4066" distance="50"/>
+						<SPLIT swimtime="1.2661" distance="100"/>
+						<SPLIT swimtime="2.0568" distance="150"/>
+						<SPLIT swimtime="2.4819" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137341" heat="03" lane="2" agegroupid="0" swimtime="3.0340" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="10" points="303" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1638604" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1544915" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1338465" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1548180" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4233" distance="50"/>
+						<SPLIT swimtime="1.2784" distance="100"/>
+						<SPLIT swimtime="2.1780" distance="150"/>
+						<SPLIT swimtime="3.0340" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137339" heat="03" lane="3" agegroupid="0" swimtime="3.0871" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="13" points="264" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1733008" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1542865" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1653121" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1544454" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4204" distance="50"/>
+						<SPLIT swimtime="1.3035" distance="100"/>
+						<SPLIT swimtime="2.2203" distance="150"/>
+						<SPLIT swimtime="3.0871" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137340" heat="03" lane="4" agegroupid="0" swimtime="3.0493" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="11" points="291" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1728611" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1563978" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1729474" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1418737" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4333" distance="50"/>
+						<SPLIT swimtime="1.3158" distance="100"/>
+						<SPLIT swimtime="2.2035" distance="150"/>
+						<SPLIT swimtime="3.0493" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137328" heat="04" lane="1" agegroupid="0" swimtime="2.4813" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="87" roundid="60" place="6" points="428" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1678643" clubid="178"/>
+							<RELAYPOSITION number="2" swimmerid="1672298" clubid="178"/>
+							<RELAYPOSITION number="3" swimmerid="1717100" clubid="178"/>
+							<RELAYPOSITION number="4" swimmerid="1564283" clubid="178"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4202" distance="50"/>
+						<SPLIT swimtime="1.2347" distance="100"/>
+						<SPLIT swimtime="2.0731" distance="150"/>
+						<SPLIT swimtime="2.4813" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137337" heat="04" lane="2" agegroupid="0" swimtime="2.4334" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="5" points="472" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1230911" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1228702" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1430185" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1638027" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.3776" distance="50"/>
+						<SPLIT swimtime="1.2002" distance="100"/>
+						<SPLIT swimtime="2.0332" distance="150"/>
+						<SPLIT swimtime="2.4334" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137338" heat="04" lane="3" agegroupid="0" swimtime="2.4876" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="8" points="423" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1689188" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1545381" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1452906" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1430247" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.3882" distance="50"/>
+						<SPLIT swimtime="1.2042" distance="100"/>
+						<SPLIT swimtime="2.0624" distance="150"/>
+						<SPLIT swimtime="2.4876" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137330" heat="04" lane="4" agegroupid="0" swimtime="2.5630" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="87" roundid="60" place="9" points="359" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1637684" clubid="1062"/>
+							<RELAYPOSITION number="2" swimmerid="1637697" clubid="1062"/>
+							<RELAYPOSITION number="3" swimmerid="1637665" clubid="1062"/>
+							<RELAYPOSITION number="4" swimmerid="1637694" clubid="1062"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.3949" distance="50"/>
+						<SPLIT swimtime="1.2594" distance="100"/>
+						<SPLIT swimtime="2.1066" distance="150"/>
+						<SPLIT swimtime="2.5630" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137327" heat="05" lane="1" agegroupid="0" swimtime="2.3282" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="87" roundid="60" place="3" points="576" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1693569" clubid="178"/>
+							<RELAYPOSITION number="2" swimmerid="1564275" clubid="178"/>
+							<RELAYPOSITION number="3" swimmerid="1564261" clubid="178"/>
+							<RELAYPOSITION number="4" swimmerid="1607602" clubid="178"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.4004" distance="50"/>
+						<SPLIT swimtime="1.1894" distance="100"/>
+						<SPLIT swimtime="1.5634" distance="150"/>
+						<SPLIT swimtime="2.3282" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137326" heat="05" lane="2" agegroupid="0" swimtime="2.2387" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="87" roundid="60" place="1" points="673" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1564281" clubid="178"/>
+							<RELAYPOSITION number="2" swimmerid="1581943" clubid="178"/>
+							<RELAYPOSITION number="3" swimmerid="1564277" clubid="178"/>
+							<RELAYPOSITION number="4" swimmerid="1564255" clubid="178"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.3690" distance="50"/>
+						<SPLIT swimtime="1.1403" distance="100"/>
+						<SPLIT swimtime="1.4957" distance="150"/>
+						<SPLIT swimtime="2.2387" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137335" heat="05" lane="3" agegroupid="0" swimtime="2.2827" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="2" points="624" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1417976" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1428425" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1338650" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1128921" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.3514" distance="50"/>
+						<SPLIT swimtime="1.1200" distance="100"/>
+						<SPLIT swimtime="1.5069" distance="150"/>
+						<SPLIT swimtime="2.2827" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137336" heat="05" lane="4" agegroupid="0" swimtime="2.4158" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="87" roundid="60" place="4" points="489" swimoff="false">
+					<RELAY>
+						<RELAYPOSITIONS>
+							<RELAYPOSITION number="1" swimmerid="1605687" clubid="1209"/>
+							<RELAYPOSITION number="2" swimmerid="1430295" clubid="1209"/>
+							<RELAYPOSITION number="3" swimmerid="1339295" clubid="1209"/>
+							<RELAYPOSITION number="4" swimmerid="1229679" clubid="1209"/>
+						</RELAYPOSITIONS>
+					</RELAY>
+					<SPLITS>
+						<SPLIT swimtime="0.3889" distance="50"/>
+						<SPLIT swimtime="1.1837" distance="100"/>
+						<SPLIT swimtime="2.0330" distance="150"/>
+						<SPLIT swimtime="2.4158" distance="200"/>
+					</SPLITS>
+				</RESULT>
+				<RESULT id="9137183" heat="01" lane="1" agegroupid="0" swimtime="0.2957" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="130" roundid="60" place="15" swimoff="false">
+					<SOLO swimmerid="1638450"/>
+				</RESULT>
+				<RESULT id="9137296" heat="01" lane="2" agegroupid="0" swimtime="0.2585" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="14" swimoff="false">
+					<SOLO swimmerid="1653121"/>
+				</RESULT>
+				<RESULT id="9137199" heat="01" lane="3" agegroupid="0" swimtime="0.2458" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="130" roundid="60" place="12" swimoff="false">
+					<SOLO swimmerid="1638908"/>
+				</RESULT>
+				<RESULT id="9137191" heat="02" lane="1" agegroupid="0" swimtime="0.2496" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="13" swimoff="false">
+					<SOLO swimmerid="1338465"/>
+				</RESULT>
+				<RESULT id="9137256" heat="02" lane="2" agegroupid="0" swimtime="0.2457" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1544915"/>
+				</RESULT>
+				<RESULT id="9137305" heat="02" lane="3" agegroupid="0" swimtime="0.2457" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1542865"/>
+				</RESULT>
+				<RESULT id="9137276" heat="02" lane="4" agegroupid="0" swimtime="0.2443" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="9" swimoff="false">
+					<SOLO swimmerid="1544454"/>
+				</RESULT>
+				<RESULT id="9137218" heat="03" lane="1" agegroupid="0" swimtime="0.2264" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="130" roundid="60" place="7" swimoff="false">
+					<SOLO swimmerid="1717100"/>
+				</RESULT>
+				<RESULT id="9137323" heat="03" lane="2" agegroupid="0" swimtime="0.2180" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="6" swimoff="false">
+					<SOLO swimmerid="1430185"/>
+				</RESULT>
+				<RESULT id="9137203" heat="03" lane="3" agegroupid="0" swimtime="0.2359" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="130" roundid="60" place="8" swimoff="false">
+					<SOLO swimmerid="1637697"/>
+				</RESULT>
+				<RESULT id="9137230" heat="03" lane="4" agegroupid="0" swimtime="0.2053" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="130" roundid="60" place="4" swimoff="false">
+					<SOLO swimmerid="1473638"/>
+				</RESULT>
+				<RESULT id="9137182" heat="04" lane="1" agegroupid="0" swimtime="0.1764" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="130" roundid="60" place="2" swimoff="false">
+					<SOLO swimmerid="1564261"/>
+				</RESULT>
+				<RESULT id="9137228" heat="04" lane="2" agegroupid="0" swimtime="0.1693" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="130" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1417976"/>
+				</RESULT>
+				<RESULT id="9137212" heat="04" lane="3" agegroupid="0" swimtime="0.1818" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="130" roundid="60" place="3" swimoff="false">
+					<SOLO swimmerid="1564255"/>
+				</RESULT>
+				<RESULT id="9137219" heat="04" lane="4" agegroupid="0" swimtime="0.2148" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="130" roundid="60" place="5" swimoff="false">
+					<SOLO swimmerid="1637684"/>
+				</RESULT>
+				<RESULT id="9137267" heat="01" lane="1" agegroupid="0" swimtime="0.2823" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="21" swimoff="false">
+					<SOLO swimmerid="1339310"/>
+				</RESULT>
+				<RESULT id="9137198" heat="01" lane="2" agegroupid="0" swimtime="0.2324" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="180" roundid="60" place="14" swimoff="false">
+					<SOLO swimmerid="1638030"/>
+				</RESULT>
+				<RESULT id="9137257" heat="01" lane="3" agegroupid="0" swimtime="0.2697" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="19" swimoff="false">
+					<SOLO swimmerid="1470498"/>
+				</RESULT>
+				<RESULT id="9137321" heat="01" lane="4" agegroupid="0" swimtime="0.2758" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="180" roundid="60" place="20" swimoff="false">
+					<SOLO swimmerid="1638068"/>
+				</RESULT>
+				<RESULT id="9137211" heat="02" lane="1" agegroupid="0" swimtime="0.2178" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="11" swimoff="false">
+					<SOLO swimmerid="1428421"/>
+				</RESULT>
+				<RESULT id="9137237" heat="02" lane="2" agegroupid="0" swimtime="0.2462" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="16" swimoff="false">
+					<SOLO swimmerid="1728611"/>
+				</RESULT>
+				<RESULT id="9137255" heat="02" lane="3" agegroupid="0" swimtime="99.0000" swimdate="2013-10-06" disqualificationid="9" clubid="1209" raceid="180" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1430247"/>
+				</RESULT>
+				<RESULT id="9137188" heat="02" lane="4" agegroupid="0" swimtime="0.2412" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="180" roundid="60" place="15" swimoff="false">
+					<SOLO swimmerid="1638059"/>
+				</RESULT>
+				<RESULT id="9137209" heat="03" lane="1" agegroupid="0" swimtime="0.3119" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="180" roundid="60" place="22" swimoff="false">
+					<SOLO swimmerid="1637711"/>
+				</RESULT>
+				<RESULT id="9137316" heat="03" lane="2" agegroupid="0" swimtime="0.1960" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="180" roundid="60" place="9" swimoff="false">
+					<SOLO swimmerid="1693569"/>
+				</RESULT>
+				<RESULT id="9137208" heat="03" lane="3" agegroupid="0" swimtime="0.2616" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="180" roundid="60" place="18" swimoff="false">
+					<SOLO swimmerid="1637665"/>
+				</RESULT>
+				<RESULT id="9137213" heat="03" lane="4" agegroupid="0" swimtime="0.2468" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="180" roundid="60" place="17" swimoff="false">
+					<SOLO swimmerid="1638103"/>
+				</RESULT>
+				<RESULT id="9137238" heat="04" lane="1" agegroupid="0" swimtime="0.2286" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="13" swimoff="false">
+					<SOLO swimmerid="1548180"/>
+				</RESULT>
+				<RESULT id="9137277" heat="04" lane="2" agegroupid="0" swimtime="0.1990" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1689188"/>
+				</RESULT>
+				<RESULT id="9137288" heat="04" lane="3" agegroupid="0" swimtime="0.1804" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="180" roundid="60" place="3" swimoff="false">
+					<SOLO swimmerid="1607602"/>
+				</RESULT>
+				<RESULT id="9137304" heat="04" lane="4" agegroupid="0" swimtime="0.1924" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="7" swimoff="false">
+					<SOLO swimmerid="1230911"/>
+				</RESULT>
+				<RESULT id="9137275" heat="05" lane="1" agegroupid="0" swimtime="0.1779" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1229679"/>
+				</RESULT>
+				<RESULT id="9137258" heat="05" lane="2" agegroupid="0" swimtime="0.1781" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="180" roundid="60" place="2" swimoff="false">
+					<SOLO swimmerid="1564277"/>
+				</RESULT>
+				<RESULT id="9137265" heat="05" lane="3" agegroupid="0" swimtime="0.1836" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="4" swimoff="false">
+					<SOLO swimmerid="1605687"/>
+				</RESULT>
+				<RESULT id="9137266" heat="05" lane="4" agegroupid="0" swimtime="0.2270" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="12" swimoff="false">
+					<SOLO swimmerid="1638604"/>
+				</RESULT>
+				<RESULT id="9137295" heat="06" lane="1" agegroupid="0" swimtime="0.1922" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="6" swimoff="false">
+					<SOLO swimmerid="1228702"/>
+				</RESULT>
+				<RESULT id="9137179" heat="06" lane="2" agegroupid="0" swimtime="99.0000" swimdate="2013-10-06" disqualificationid="9" clubid="1209" raceid="180" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1128921"/>
+				</RESULT>
+				<RESULT id="9137287" heat="06" lane="3" agegroupid="0" swimtime="0.1943" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="8" swimoff="false">
+					<SOLO swimmerid="1428425"/>
+				</RESULT>
+				<RESULT id="9137322" heat="06" lane="4" agegroupid="0" swimtime="0.1917" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="180" roundid="60" place="5" swimoff="false">
+					<SOLO swimmerid="1338650"/>
+				</RESULT>
+				<RESULT id="9137270" heat="01" lane="1" agegroupid="0" swimtime="0.2828" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="27" swimoff="false">
+					<SOLO swimmerid="1638909"/>
+				</RESULT>
+				<RESULT id="9137215" heat="01" lane="2" agegroupid="0" swimtime="0.2296" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1729474"/>
+				</RESULT>
+				<RESULT id="9137231" heat="01" lane="3" agegroupid="0" swimtime="0.2493" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="19" swimoff="false">
+					<SOLO swimmerid="1638071"/>
+				</RESULT>
+				<RESULT id="9137271" heat="02" lane="1" agegroupid="0" swimtime="0.2575" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="23" swimoff="false">
+					<SOLO swimmerid="1264786"/>
+				</RESULT>
+				<RESULT id="9137262" heat="02" lane="2" agegroupid="0" swimtime="0.2141" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="5" swimoff="false">
+					<SOLO swimmerid="1338636"/>
+				</RESULT>
+				<RESULT id="9137264" heat="02" lane="3" agegroupid="0" swimtime="0.2715" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="25" swimoff="false">
+					<SOLO swimmerid="1638450"/>
+				</RESULT>
+				<RESULT id="9137308" heat="02" lane="4" agegroupid="0" swimtime="0.2500" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="20" swimoff="false">
+					<SOLO swimmerid="1638847"/>
+				</RESULT>
+				<RESULT id="9137240" heat="03" lane="1" agegroupid="0" swimtime="0.2302" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="11" swimoff="false">
+					<SOLO swimmerid="1637694"/>
+				</RESULT>
+				<RESULT id="9137176" heat="03" lane="2" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="110" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1605650"/>
+				</RESULT>
+				<RESULT id="9137193" heat="03" lane="3" agegroupid="0" swimtime="0.2700" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="24" swimoff="false">
+					<SOLO swimmerid="1638444"/>
+				</RESULT>
+				<RESULT id="9137252" heat="03" lane="4" agegroupid="0" swimtime="0.2360" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="14" swimoff="false">
+					<SOLO swimmerid="1280550"/>
+				</RESULT>
+				<RESULT id="9137282" heat="04" lane="1" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="110" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1336088"/>
+				</RESULT>
+				<RESULT id="9137259" heat="04" lane="2" agegroupid="0" swimtime="0.2721" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="26" swimoff="false">
+					<SOLO swimmerid="1638067"/>
+				</RESULT>
+				<RESULT id="9137272" heat="04" lane="3" agegroupid="0" swimtime="0.2346" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="12" swimoff="false">
+					<SOLO swimmerid="1338465"/>
+				</RESULT>
+				<RESULT id="9137261" heat="04" lane="4" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="110" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1541404"/>
+				</RESULT>
+				<RESULT id="9137224" heat="05" lane="1" agegroupid="0" swimtime="0.2515" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="22" swimoff="false">
+					<SOLO swimmerid="1653121"/>
+				</RESULT>
+				<RESULT id="9137283" heat="05" lane="2" agegroupid="0" swimtime="0.2503" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="21" swimoff="false">
+					<SOLO swimmerid="1566742"/>
+				</RESULT>
+				<RESULT id="9137205" heat="05" lane="3" agegroupid="0" swimtime="0.2359" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="13" swimoff="false">
+					<SOLO swimmerid="1544454"/>
+				</RESULT>
+				<RESULT id="9137225" heat="05" lane="4" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="110" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1451228"/>
+				</RESULT>
+				<RESULT id="9137311" heat="06" lane="1" agegroupid="0" swimtime="0.2139" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="4" swimoff="false">
+					<SOLO swimmerid="1473638"/>
+				</RESULT>
+				<RESULT id="9137242" heat="06" lane="2" agegroupid="0" swimtime="0.2443" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="16" swimoff="false">
+					<SOLO swimmerid="1452906"/>
+				</RESULT>
+				<RESULT id="9137281" heat="06" lane="3" agegroupid="0" swimtime="0.2472" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="17" swimoff="false">
+					<SOLO swimmerid="1563978"/>
+				</RESULT>
+				<RESULT id="9137197" heat="06" lane="4" agegroupid="0" swimtime="0.2383" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="15" swimoff="false">
+					<SOLO swimmerid="1672335"/>
+				</RESULT>
+				<RESULT id="9137320" heat="07" lane="1" agegroupid="0" swimtime="0.2238" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="7" swimoff="false">
+					<SOLO swimmerid="1564283"/>
+				</RESULT>
+				<RESULT id="9137291" heat="07" lane="2" agegroupid="0" swimtime="0.2273" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="9" swimoff="false">
+					<SOLO swimmerid="1545381"/>
+				</RESULT>
+				<RESULT id="9137300" heat="07" lane="3" agegroupid="0" swimtime="0.2213" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="6" swimoff="false">
+					<SOLO swimmerid="1339295"/>
+				</RESULT>
+				<RESULT id="9137284" heat="07" lane="4" agegroupid="0" swimtime="0.2476" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="110" roundid="60" place="18" swimoff="false">
+					<SOLO swimmerid="1637697"/>
+				</RESULT>
+				<RESULT id="9137263" heat="08" lane="1" agegroupid="0" swimtime="0.2000" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="3" swimoff="false">
+					<SOLO swimmerid="1564261"/>
+				</RESULT>
+				<RESULT id="9137309" heat="08" lane="2" agegroupid="0" swimtime="0.1843" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="110" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1417976"/>
+				</RESULT>
+				<RESULT id="9137235" heat="08" lane="3" agegroupid="0" swimtime="0.1995" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="2" swimoff="false">
+					<SOLO swimmerid="1581943"/>
+				</RESULT>
+				<RESULT id="9137226" heat="08" lane="4" agegroupid="0" swimtime="0.2253" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="110" roundid="60" place="8" swimoff="false">
+					<SOLO swimmerid="1678643"/>
+				</RESULT>
+				<RESULT id="9137310" heat="01" lane="1" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="160" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1229367"/>
+				</RESULT>
+				<RESULT id="9137254" heat="01" lane="2" agegroupid="0" swimtime="0.2540" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="160" roundid="60" place="22" swimoff="false">
+					<SOLO swimmerid="1638844"/>
+				</RESULT>
+				<RESULT id="9137279" heat="01" lane="3" agegroupid="0" swimtime="0.2571" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="160" roundid="60" place="23" swimoff="false">
+					<SOLO swimmerid="1638030"/>
+				</RESULT>
+				<RESULT id="9137249" heat="01" lane="4" agegroupid="0" swimtime="0.2804" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="160" roundid="60" place="25" swimoff="false">
+					<SOLO swimmerid="1638068"/>
+				</RESULT>
+				<RESULT id="9137292" heat="02" lane="1" agegroupid="0" swimtime="0.2216" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="15" swimoff="false">
+					<SOLO swimmerid="1428421"/>
+				</RESULT>
+				<RESULT id="9137301" heat="02" lane="2" agegroupid="0" swimtime="0.2456" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="20" swimoff="false">
+					<SOLO swimmerid="1635535"/>
+				</RESULT>
+				<RESULT id="9137234" heat="02" lane="3" agegroupid="0" swimtime="0.2264" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="16" swimoff="false">
+					<SOLO swimmerid="1418737"/>
+				</RESULT>
+				<RESULT id="9137317" heat="02" lane="4" agegroupid="0" swimtime="0.2925" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="160" roundid="60" place="26" swimoff="false">
+					<SOLO swimmerid="1637681"/>
+				</RESULT>
+				<RESULT id="9137273" heat="03" lane="1" agegroupid="0" swimtime="0.2113" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="160" roundid="60" place="8" swimoff="false">
+					<SOLO swimmerid="1678627"/>
+				</RESULT>
+				<RESULT id="9137184" heat="03" lane="2" agegroupid="0" swimtime="0.2128" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="9" swimoff="false">
+					<SOLO swimmerid="1430247"/>
+				</RESULT>
+				<RESULT id="9137243" heat="03" lane="3" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="160" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1671367"/>
+				</RESULT>
+				<RESULT id="9137318" heat="03" lane="4" agegroupid="0" swimtime="0.2276" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="17" swimoff="false">
+					<SOLO swimmerid="1728611"/>
+				</RESULT>
+				<RESULT id="9137319" heat="04" lane="1" agegroupid="0" swimtime="0.2513" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="21" swimoff="false">
+					<SOLO swimmerid="1548180"/>
+				</RESULT>
+				<RESULT id="9137253" heat="04" lane="2" agegroupid="0" swimtime="0.2347" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="160" roundid="60" place="19" swimoff="false">
+					<SOLO swimmerid="1672298"/>
+				</RESULT>
+				<RESULT id="9137289" heat="04" lane="3" agegroupid="0" swimtime="0.2617" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="160" roundid="60" place="24" swimoff="false">
+					<SOLO swimmerid="1637665"/>
+				</RESULT>
+				<RESULT id="9137175" heat="04" lane="4" agegroupid="0" swimtime="0.2168" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="13" swimoff="false">
+					<SOLO swimmerid="1733008"/>
+				</RESULT>
+				<RESULT id="9137206" heat="05" lane="1" agegroupid="0" swimtime="0.2141" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="11" swimoff="false">
+					<SOLO swimmerid="1689188"/>
+				</RESULT>
+				<RESULT id="9137214" heat="05" lane="2" agegroupid="0" swimtime="0.2314" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="18" swimoff="false">
+					<SOLO swimmerid="1638027"/>
+				</RESULT>
+				<RESULT id="9137217" heat="05" lane="3" agegroupid="0" swimtime="0.2040" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="160" roundid="60" place="4" swimoff="false">
+					<SOLO swimmerid="1607602"/>
+				</RESULT>
+				<RESULT id="9137232" heat="05" lane="4" agegroupid="0" swimtime="0.2173" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="14" swimoff="false">
+					<SOLO swimmerid="1230911"/>
+				</RESULT>
+				<RESULT id="9137194" heat="06" lane="1" agegroupid="0" swimtime="0.1994" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="2" swimoff="false">
+					<SOLO swimmerid="1605687"/>
+				</RESULT>
+				<RESULT id="9137177" heat="06" lane="2" agegroupid="0" swimtime="0.2018" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="160" roundid="60" place="3" swimoff="false">
+					<SOLO swimmerid="1564281"/>
+				</RESULT>
+				<RESULT id="9137244" heat="06" lane="3" agegroupid="0" swimtime="0.2140" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="160" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1693569"/>
+				</RESULT>
+				<RESULT id="9137207" heat="06" lane="4" agegroupid="0" swimtime="0.2142" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="160" roundid="60" place="12" swimoff="false">
+					<SOLO swimmerid="1564275"/>
+				</RESULT>
+				<RESULT id="9137223" heat="07" lane="1" agegroupid="0" swimtime="0.2086" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="6" swimoff="false">
+					<SOLO swimmerid="1228702"/>
+				</RESULT>
+				<RESULT id="9137216" heat="07" lane="2" agegroupid="0" swimtime="0.2095" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="7" swimoff="false">
+					<SOLO swimmerid="1428425"/>
+				</RESULT>
+				<RESULT id="9137260" heat="07" lane="3" agegroupid="0" swimtime="0.1958" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1128921"/>
+				</RESULT>
+				<RESULT id="9137241" heat="07" lane="4" agegroupid="0" swimtime="0.2077" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="160" roundid="60" place="5" swimoff="false">
+					<SOLO swimmerid="1430295"/>
+				</RESULT>
+				<RESULT id="9137245" heat="01" lane="1" agegroupid="0" swimtime="0.3056" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="25" swimoff="false">
+					<SOLO swimmerid="1638060"/>
+				</RESULT>
+				<RESULT id="9137201" heat="01" lane="2" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="120" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1336088"/>
+				</RESULT>
+				<RESULT id="9137286" heat="01" lane="3" agegroupid="0" swimtime="0.2864" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="22" swimoff="false">
+					<SOLO swimmerid="1729474"/>
+				</RESULT>
+				<RESULT id="9137274" heat="01" lane="4" agegroupid="0" swimtime="0.3186" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="26" swimoff="false">
+					<SOLO swimmerid="1689113"/>
+				</RESULT>
+				<RESULT id="9137297" heat="02" lane="1" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="120" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1451228"/>
+				</RESULT>
+				<RESULT id="9137227" heat="02" lane="2" agegroupid="0" swimtime="0.2622" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="16" swimoff="false">
+					<SOLO swimmerid="1638847"/>
+				</RESULT>
+				<RESULT id="9137247" heat="02" lane="3" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="120" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1605650"/>
+				</RESULT>
+				<RESULT id="9137190" heat="02" lane="4" agegroupid="0" swimtime="99.0000" swimdate="2013-10-06" disqualificationid="9" clubid="1209" raceid="120" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1264786"/>
+				</RESULT>
+				<RESULT id="9137189" heat="03" lane="1" agegroupid="0" swimtime="0.2900" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="23" swimoff="false">
+					<SOLO swimmerid="1638918"/>
+				</RESULT>
+				<RESULT id="9137180" heat="03" lane="2" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="120" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1541404"/>
+				</RESULT>
+				<RESULT id="9137185" heat="03" lane="3" agegroupid="0" swimtime="0.2555" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="13" swimoff="false">
+					<SOLO swimmerid="1544915"/>
+				</RESULT>
+				<RESULT id="9137222" heat="03" lane="4" agegroupid="0" swimtime="0.3010" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="24" swimoff="false">
+					<SOLO swimmerid="1193792"/>
+				</RESULT>
+				<RESULT id="9137280" heat="04" lane="1" agegroupid="0" swimtime="0.3390" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="27" swimoff="false">
+					<SOLO swimmerid="1638908"/>
+				</RESULT>
+				<RESULT id="9137233" heat="04" lane="2" agegroupid="0" swimtime="0.2566" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="14" swimoff="false">
+					<SOLO swimmerid="1542865"/>
+				</RESULT>
+				<RESULT id="9137268" heat="04" lane="3" agegroupid="0" swimtime="0.2646" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="17" swimoff="false">
+					<SOLO swimmerid="1672335"/>
+				</RESULT>
+				<RESULT id="9137303" heat="04" lane="4" agegroupid="0" swimtime="0.2748" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="19" swimoff="false">
+					<SOLO swimmerid="1638071"/>
+				</RESULT>
+				<RESULT id="9137302" heat="05" lane="1" agegroupid="0" swimtime="0.2792" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="21" swimoff="false">
+					<SOLO swimmerid="1717100"/>
+				</RESULT>
+				<RESULT id="9137178" heat="05" lane="2" agegroupid="0" swimtime="0.2775" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="20" swimoff="false">
+					<SOLO swimmerid="1638067"/>
+				</RESULT>
+				<RESULT id="9137181" heat="05" lane="3" agegroupid="0" swimtime="0.2572" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="15" swimoff="false">
+					<SOLO swimmerid="1338636"/>
+				</RESULT>
+				<RESULT id="9137324" heat="05" lane="4" agegroupid="0" swimtime="0.2528" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="12" swimoff="false">
+					<SOLO swimmerid="1280550"/>
+				</RESULT>
+				<RESULT id="9137298" heat="06" lane="1" agegroupid="0" swimtime="0.2527" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="11" swimoff="false">
+					<SOLO swimmerid="1678643"/>
+				</RESULT>
+				<RESULT id="9137200" heat="06" lane="2" agegroupid="0" swimtime="0.2522" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1563978"/>
+				</RESULT>
+				<RESULT id="9137251" heat="06" lane="3" agegroupid="0" swimtime="0.2664" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="18" swimoff="false">
+					<SOLO swimmerid="1430185"/>
+				</RESULT>
+				<RESULT id="9137314" heat="06" lane="4" agegroupid="0" swimtime="0.2505" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="9" swimoff="false">
+					<SOLO swimmerid="1452906"/>
+				</RESULT>
+				<RESULT id="9137202" heat="07" lane="1" agegroupid="0" swimtime="0.2381" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="3" swimoff="false">
+					<SOLO swimmerid="1566742"/>
+				</RESULT>
+				<RESULT id="9137220" heat="07" lane="2" agegroupid="0" swimtime="0.2469" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="5" swimoff="false">
+					<SOLO swimmerid="1339295"/>
+				</RESULT>
+				<RESULT id="9137312" heat="07" lane="3" agegroupid="0" swimtime="0.2484" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="6" swimoff="false">
+					<SOLO swimmerid="1637694"/>
+				</RESULT>
+				<RESULT id="9137239" heat="07" lane="4" agegroupid="0" swimtime="0.2502" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="8" swimoff="false">
+					<SOLO swimmerid="1564283"/>
+				</RESULT>
+				<RESULT id="9137307" heat="08" lane="1" agegroupid="0" swimtime="0.2202" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="2" swimoff="false">
+					<SOLO swimmerid="1581943"/>
+				</RESULT>
+				<RESULT id="9137293" heat="08" lane="2" agegroupid="0" swimtime="0.2152" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="120" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1564255"/>
+				</RESULT>
+				<RESULT id="9137299" heat="08" lane="3" agegroupid="0" swimtime="0.2491" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="120" roundid="60" place="7" swimoff="false">
+					<SOLO swimmerid="1637684"/>
+				</RESULT>
+				<RESULT id="9137210" heat="08" lane="4" agegroupid="0" swimtime="0.2393" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="120" roundid="60" place="4" swimoff="false">
+					<SOLO swimmerid="1545381"/>
+				</RESULT>
+				<RESULT id="9137196" heat="01" lane="1" agegroupid="0" swimtime="0.2407" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="6" swimoff="false">
+					<SOLO swimmerid="1339310"/>
+				</RESULT>
+				<RESULT id="9137174" heat="01" lane="2" agegroupid="0" swimtime="0.2934" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="170" roundid="60" place="20" swimoff="false">
+					<SOLO swimmerid="1638844"/>
+				</RESULT>
+				<RESULT id="9137186" heat="01" lane="3" agegroupid="0" swimtime="0.2456" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="10" swimoff="false">
+					<SOLO swimmerid="1470498"/>
+				</RESULT>
+				<RESULT id="9137221" heat="02" lane="1" agegroupid="0" swimtime="0.2805" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="17" swimoff="false">
+					<SOLO swimmerid="1635535"/>
+				</RESULT>
+				<RESULT id="9137269" heat="02" lane="2" agegroupid="0" swimtime="0.2788" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="170" roundid="60" place="16" swimoff="false">
+					<SOLO swimmerid="1638059"/>
+				</RESULT>
+				<RESULT id="9137306" heat="02" lane="3" agegroupid="0" swimtime="0.2683" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="15" swimoff="false">
+					<SOLO swimmerid="1418737"/>
+				</RESULT>
+				<RESULT id="9137290" heat="03" lane="1" agegroupid="0" swimtime="0.2881" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="170" roundid="60" place="19" swimoff="false">
+					<SOLO swimmerid="1637711"/>
+				</RESULT>
+				<RESULT id="9137325" heat="03" lane="2" agegroupid="0" swimtime="0.2581" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="170" roundid="60" place="14" swimoff="false">
+					<SOLO swimmerid="1672298"/>
+				</RESULT>
+				<RESULT id="9137229" heat="03" lane="3" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="170" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1229367"/>
+				</RESULT>
+				<RESULT id="9137246" heat="03" lane="4" agegroupid="0" swimtime="0.2821" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="18" swimoff="false">
+					<SOLO swimmerid="1733008"/>
+				</RESULT>
+				<RESULT id="9137294" heat="04" lane="1" agegroupid="0" swimtime="0.2446" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="170" roundid="60" place="9" swimoff="false">
+					<SOLO swimmerid="1638103"/>
+				</RESULT>
+				<RESULT id="9137195" heat="04" lane="2" agegroupid="0" swimtime="0.2465" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="11" swimoff="false">
+					<SOLO swimmerid="1638604"/>
+				</RESULT>
+				<RESULT id="9137278" heat="04" lane="3" agegroupid="0" swimtime="0.2515" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="170" roundid="60" place="13" swimoff="false">
+					<SOLO swimmerid="1564275"/>
+				</RESULT>
+				<RESULT id="9137315" heat="04" lane="4" agegroupid="0" swimtime="92.0000" swimdate="2013-10-06" disqualificationid="2" clubid="1209" raceid="170" roundid="60" place="999" swimoff="false">
+					<SOLO swimmerid="1671367"/>
+				</RESULT>
+				<RESULT id="9137236" heat="05" lane="1" agegroupid="0" swimtime="0.2380" swimdate="2013-10-06" disqualificationid="0" clubid="1062" raceid="170" roundid="60" place="4" swimoff="false">
+					<SOLO swimmerid="1637681"/>
+				</RESULT>
+				<RESULT id="9137313" heat="05" lane="2" agegroupid="0" swimtime="0.2417" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="7" swimoff="false">
+					<SOLO swimmerid="1430295"/>
+				</RESULT>
+				<RESULT id="9137187" heat="05" lane="3" agegroupid="0" swimtime="0.2493" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="170" roundid="60" place="12" swimoff="false">
+					<SOLO swimmerid="1564277"/>
+				</RESULT>
+				<RESULT id="9137248" heat="05" lane="4" agegroupid="0" swimtime="0.2304" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="170" roundid="60" place="3" swimoff="false">
+					<SOLO swimmerid="1564281"/>
+				</RESULT>
+				<RESULT id="9137250" heat="06" lane="1" agegroupid="0" swimtime="0.2247" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1338650"/>
+				</RESULT>
+				<RESULT id="9137192" heat="06" lane="2" agegroupid="0" swimtime="0.2393" swimdate="2013-10-06" disqualificationid="0" clubid="178" raceid="170" roundid="60" place="5" swimoff="false">
+					<SOLO swimmerid="1678627"/>
+				</RESULT>
+				<RESULT id="9137204" heat="06" lane="3" agegroupid="0" swimtime="0.2247" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="1" swimoff="false">
+					<SOLO swimmerid="1229679"/>
+				</RESULT>
+				<RESULT id="9137285" heat="06" lane="4" agegroupid="0" swimtime="0.2421" swimdate="2013-10-06" disqualificationid="0" clubid="1209" raceid="170" roundid="60" place="8" swimoff="false">
+					<SOLO swimmerid="1638027"/>
+				</RESULT>
+			</RESULTS>
+		</MEET>
+	</MEETS>
+</FFNEX>
