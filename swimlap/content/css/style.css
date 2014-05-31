@@ -199,9 +199,9 @@ a.button { height: 20px; font-family: arial; }
 .graph-text { font-size: 35px; color: #046675; padding: 20%; }
 .graph-text-general { color: #046675; font-size: 23px; padding: 3%; }
 
-.reparts { border-right: 1px solid #046675; text-align: center; }
+.reparts { border-right: 1px solid #046675; text-align: center; padding-bottom: 10px; }
 #stat-forms .reparts p { font-size: 16px; }
-.reparts:last-child { border: none; }
+.reparts:last-child { border: none; padding-bottom: 0;}
 
 .reparts table { margin: 5% 25%; border-collapse: collapse; }
 .reparts table th { background: #046675; color: #FFF; padding: 3px; font-size: 12px; border: 1px solid #000; }
@@ -221,7 +221,7 @@ a.button { height: 20px; font-family: arial; }
     height: 100%; 
     width: 25%; 
     margin: 2%; 
-    padding: 3% 1%;
+    padding: 3% 1% 0;
 }
 .graph-title { width: 30%; background-color: #48999E; text-align: center; color: white; padding: 12% 0; font-size: 20px; }
 .graph-content { width: 70%; background-color: #D4DADC; }
