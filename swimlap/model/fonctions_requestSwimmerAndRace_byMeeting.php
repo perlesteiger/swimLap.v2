@@ -2,7 +2,10 @@
 include '../var.prepend.php';
 include MODEL.'fonctions.inc.php';
 
-$id_meeting = $_POST['id_meeting'];
+if (isset($_POST['id_meeting']))
+    $id_meeting = $_POST['id_meeting'];
+else
+    $id_meeting = '';
 
 $type = $_POST['type'];
 

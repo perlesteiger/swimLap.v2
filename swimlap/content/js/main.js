@@ -82,16 +82,172 @@ $(document).ready ( function () {
        
        switch (id) {
             case 'repartition':
+                //possibilite changement competition
                 $('.search_competition').removeAttr('disabled');
                 createRepartition(swimmer,meeting,race,season);
+                
+                //remettre tous les nageurs et les races pa rapport a la competition
+                //recuperation swimmer
+                $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { id_meeting: meeting, type: 'swimmer' }, function(data) {
+                    //Si le php renvoie quelque chose
+                    var swimmers=$.parseJSON(data);
+
+                    var i=0;           
+                    $('.search_swimmer').html('');
+
+                    //option tous
+                    var option = $('<option/>');
+                     option.val('');
+                     option.text('Tous');
+                     option.appendTo('.search_swimmer');
+
+                    //option les nageurs
+                    while (i < swimmers.length) {
+                        var option = $('<option/>');
+                        option.val(swimmers[i].swimmer_id);
+                        option.text(swimmers[i].swimmer);
+                        option.appendTo('.search_swimmer');
+
+                        i++;
+                    }
+                });
+
+                //recuperation race
+                $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { id_meeting: meeting, type: 'race' }, function(data) {
+                    //Si le php renvoie quelque chose
+                    var races=$.parseJSON(data);
+
+                    var i=0;           
+                    $('.search_race').html('');
+
+                    //option tous
+                    var option = $('<option/>');
+                     option.val('');
+                     option.text('Toutes');
+                     option.appendTo('.search_race');
+
+                    //option les nageurs
+                    while (i < races.length) {
+                        var option = $('<option/>');
+                        option.val(races[i].race_id);
+                        option.text(races[i].race);
+                        option.appendTo('.search_race');
+
+                        i++;
+                    }
+                });
                 break;
             case 'performance':
+                //possibilite changement competition
                 $('.search_competition').removeAttr('disabled');
                 createPerformance(swimmer,meeting,race,season);
+                
+                //remettre tous les nageurs et les races par rapport a la competition
+                //recuperation swimmer
+                $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { id_meeting: meeting, type: 'swimmer' }, function(data) {
+                    //Si le php renvoie quelque chose
+                    var swimmers=$.parseJSON(data);
+
+                    var i=0;           
+                    $('.search_swimmer').html('');
+
+                    //option tous
+                    var option = $('<option/>');
+                     option.val('');
+                     option.text('Tous');
+                     option.appendTo('.search_swimmer');
+
+                    //option les nageurs
+                    while (i < swimmers.length) {
+                        var option = $('<option/>');
+                        option.val(swimmers[i].swimmer_id);
+                        option.text(swimmers[i].swimmer);
+                        option.appendTo('.search_swimmer');
+
+                        i++;
+                    }
+                });
+
+                //recuperation race
+                $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { id_meeting: meeting, type: 'race' }, function(data) {
+                    //Si le php renvoie quelque chose
+                    var races=$.parseJSON(data);
+
+                    var i=0;           
+                    $('.search_race').html('');
+
+                    //option tous
+                    var option = $('<option/>');
+                     option.val('');
+                     option.text('Toutes');
+                     option.appendTo('.search_race');
+
+                    //option les nageurs
+                    while (i < races.length) {
+                        var option = $('<option/>');
+                        option.val(races[i].race_id);
+                        option.text(races[i].race);
+                        option.appendTo('.search_race');
+
+                        i++;
+                    }
+                });
                 break;
             case 'planning':
+                //impossible changement competition
                 $('.search_competition').prop('disabled', 'disabled');
                 createPlanification(swimmer,race,season);
+                
+                //remettre tous les nageurs et les races
+                //recuperation swimmer
+                $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { type: 'swimmer' }, function(data) {
+                    //Si le php renvoie quelque chose
+                    var swimmers=$.parseJSON(data);
+
+                    var i=0;           
+                    $('.search_swimmer').html('');
+
+                    //option tous
+                    var option = $('<option/>');
+                     option.val('');
+                     option.text('Tous');
+                     option.appendTo('.search_swimmer');
+
+                    //option les nageurs
+                    while (i < swimmers.length) {
+                        var option = $('<option/>');
+                        option.val(swimmers[i].swimmer_id);
+                        option.text(swimmers[i].swimmer);
+                        option.appendTo('.search_swimmer');
+
+                        i++;
+                    }
+                });
+
+                //recuperation race
+                $.post( "../model/fonctions_requestSwimmerAndRace_byMeeting.php", { type: 'race' }, function(data) {
+                    //Si le php renvoie quelque chose
+                    var races=$.parseJSON(data);
+
+                    var i=0;           
+                    $('.search_race').html('');
+
+                    //option tous
+                    var option = $('<option/>');
+                     option.val('');
+                     option.text('Toutes');
+                     option.appendTo('.search_race');
+
+                    //option les nageurs
+                    while (i < races.length) {
+                        var option = $('<option/>');
+                        option.val(races[i].race_id);
+                        option.text(races[i].race);
+                        option.appendTo('.search_race');
+
+                        i++;
+                    }
+                });
                 break;
        }
 

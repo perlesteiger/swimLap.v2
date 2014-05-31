@@ -227,8 +227,9 @@ function recoverSwimmerMeeting($id_meeting) {
                 FROM t_e_meeting_mee mee
                     JOIN t_e_event_eve eve ON mee.mee_id = eve.eve_mee_id
                     JOIN t_j_result_res res ON eve.eve_id = res.res_eve_id
-                    JOIN t_e_swimmer_swi swi ON res.res_swi_id = swi.swi_id
-                WHERE mee.mee_id = '.$id_meeting.'';
+                    JOIN t_e_swimmer_swi swi ON res.res_swi_id = swi.swi_id';
+             if (!empty($id_meeting))
+               $query .= ' WHERE mee.mee_id = '.$id_meeting.'';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
     
     $list_swimmer = array();
@@ -252,8 +253,9 @@ function recoverRaceMeeting($id_meeting) {
     $query = 'SELECT DISTINCT rac.rac_name, rac.rac_id 
                 FROM t_e_meeting_mee mee
                     JOIN t_e_event_eve eve ON mee.mee_id = eve.eve_mee_id
-                    JOIN t_e_race_rac rac ON eve.eve_rac_id = rac.rac_id
-                WHERE mee.mee_id = '.$id_meeting.'';
+                    JOIN t_e_race_rac rac ON eve.eve_rac_id = rac.rac_id';
+             if (!empty($id_meeting))
+               $query .= ' WHERE mee.mee_id = '.$id_meeting.'';
     $result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
     
     while ($line = pg_fetch_object($result)) {
