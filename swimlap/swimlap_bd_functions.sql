@@ -602,8 +602,10 @@ BEGIN
 	LOOP
 		IF $2 - 1.00 <> 0 THEN
 		    perc_tab[i] := trunc(percentage/($2 - 1.00), 2);
-		    i := i + 1;
+		ELSE
+		    perc_tab[i] := trunc(percentage/$2, 2);
 		END IF;
+		i := i + 1;
 	END LOOP;
 	RETURN perc_tab;
 END;
